@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { forgotPassword } from "../auth";
-
+import forgotpassword from '../css/ForgotPassword.css'
+import { Typography , TextField} from '@material-ui/core';
+import Fade from 'react-reveal'
+import { Button } from 'react-bootstrap';
 class ForgotPassword extends Component {
     state = {
         email: "",
@@ -25,22 +28,34 @@ class ForgotPassword extends Component {
     render() {
         const { message, error } = this.state;
         return (
+            <Fade left>
             <div className="container">
-                <h2 className="mt-5 mb-5">Ask for Password Reset</h2>
-
-                <div className="alert alert-danger" style={{ display: error ? "" : "none" }}>
-                    {error}
-                </div>
-                <div className="alert alert-danger" style={{ display: message ? "" : "none" }}>
-                    {message}
-                </div>
+                <Fade top>
+                    
+                        <img className="img-logo"  src={require('../images/logo.png')} alt="logo"/>
+                    
+                    <h2 className="title-forgot" style={{fontSize: "3vw",marginTop:"10px"}}>RECOVER YOUR PASSWORD</h2>
+                </Fade>
+                
+                
+                <Fade top>
+                    <div className="alert alert-danger" style={{ display: error ? "" : "none" }}>
+                        {error}
+                    </div>
+                    <div className="alert alert-danger" style={{ display: message ? "" : "none" }}>
+                        {message}
+                    </div>
+                </Fade>
+                
                 
                 <form>
+                    
                     <div className="form-group mt-5">
-                        <input
+                        <TextField
+                            label="Email"
+                            variant="outlined"
                             type="email"
                             className="form-control"
-                            placeholder="Your email address"
                             value={this.state.email}
                             name="email"
                             onChange={e =>
@@ -53,14 +68,20 @@ class ForgotPassword extends Component {
                             autoFocus
                         />
                     </div>
-                    <button
+                    <Button
+                         style={{display:"block",margin: "0 auto"}}
+                        variant="outline-dark"
                         onClick={this.forgotPasswordFunction}
-                        className="btn btn-raised btn-primary"
+                        
                     >
-                        Send Password Rest Link
-                    </button>
+                        Send Reset Password
+                    </Button>
+                    
                 </form>
+                
+                
             </div>
+            </Fade>
         );
     }
 }

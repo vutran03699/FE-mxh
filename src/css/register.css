@@ -1,0 +1,28 @@
+.title-register{
+    text-align: center;
+   font-family: 'Courgette';
+}
+.right-register{
+    margin-right: 40px;
+    padding: 35px;
+    border-radius: 16px;
+    margin: auto;
+    max-width: 450px;
+    background: white;
+    padding: 10px;
+}
+@media only screen and (max-width: 768px) {
+    .right-register{
+        max-width: 350px;
+    }
+    .left-register{
+        font-size: 20px;
+    }
+    
+    .title-welcome{
+        font-size:20px;
+    }
+    .img-logo{
+        width:  30%;
+    }
+  }

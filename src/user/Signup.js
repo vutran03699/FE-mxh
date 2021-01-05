@@ -6,6 +6,13 @@ import { Link } from 'react-router-dom';
 import Loading from '../loading/Loading';
 import SocialLogin from "./SocialLogin";
 
+import register from '../css/register.css'
+import { Typography , TextField} from '@material-ui/core';
+import Fade from 'react-reveal';
+import { Alert } from '@material-ui/lab';
+import { Button } from 'react-bootstrap';
+import Grid from '@material-ui/core/Grid';
+
 class Signup extends Component {
     constructor(){
         super();
@@ -97,8 +104,10 @@ class Signup extends Component {
     signupForm = (name, email, password, loading, recaptcha) => (
         <form style={{ display: loading ? "none" : "" }}>
             <div className="form-group">
-                <label className="text-muted">Name</label>
-                <input 
+                
+                <TextField 
+                    label="Name"
+                    variant="outlined"
                     onChange={this.handleChange} 
                     name="name" 
                     type="text" 
@@ -107,8 +116,10 @@ class Signup extends Component {
                 />
             </div>
             <div className="form-group">
-                <label className="text-muted">Email</label>
-                <input 
+                
+                <TextField 
+                    label="Email"
+                    variant="outlined"
                     onChange={this.handleChange} 
                     type="email" 
                     name="email" 
@@ -117,8 +128,10 @@ class Signup extends Component {
                 />
             </div>
             <div className="form-group">
-                <label className="text-muted">Password</label>
-                <input 
+                
+                <TextField
+                    label="Password" 
+                    variant="outlined"
                     onChange={this.handleChange} 
                     type="password" 
                     name="password" 
@@ -126,17 +139,14 @@ class Signup extends Component {
                     value={password} 
                 />
             </div>
-            <div className="form-group">
-                <label className="text-muted">
-                    {recaptcha ? "Captcha success. You got it!" : "What day is today?"}
-                </label>
-                <input
-                    onChange={this.recaptchaHandler}
-                    type="text"
-                    className="form-control"
-                />
-            </div>
-            <button onClick={this.clickSubmit} className="btn btn-raised btn-primary">Submit</button>
+           
+            <Button onClick={this.clickSubmit}  
+                    style={{display:"block",margin: "0 auto"}}
+                    variant="outline-dark"
+                    block
+                    >
+                    Sign Up
+            </Button>
         </form>
     );
 
@@ -144,26 +154,56 @@ class Signup extends Component {
     render(){
         const { name, email, password, error, open, loading, recaptcha } = this.state;
         return (
-            <div className="container">
-                <h2 className="mt-5 mb-5">Signup</h2>
-                <SocialLogin for="signup" />
-                <hr />
-                <p className="text-center text-muted" style={{fontSize: "24px"}} >OR</p>
-                <hr />
-                <hr />
-                <div className="alert alert-danger" style={{ display: error ? "" : "none" }}>
-                    {error}
-                </div>
-                <div className="alert alert-info" style={{ display: open ? "" : "none" }}>
-                    New account is successfully created. Please <Link to='/signin'>Sign In</Link>.
-                </div>
-                {this.signupForm(name, email, password, loading, recaptcha)}
-                { loading ? (
-                    <Loading />
-                ) : (
-                    ""
-                )}
-            </div>
+            <Grid container spacing={2} style={{overflowX:"hidden"}}>
+                 <Grid item lg={8} sm={6} xs={12}>
+                    <div className="left-register">
+                            <Fade top>
+                                <img className="img-logo" style={{display:"block",marginBottom:"10px",marginLeft:"auto",marginRight:"auto",maxWidth:"200px"}} src={require('../images/logo.png')} alt="logo"/>  
+                            </Fade>
+                            
+                            <Fade left>
+                                <Typography className="titel-welcome" variant="h4" color="inherit" style={{textAlign:"center",fontFamily: "Courgette",fontSize:"3vw"}} >
+                                    Welcome to the Social App !
+                                </Typography>
+                            </Fade>
+                            <Fade up>
+                                <Typography style={{textAlign:"center",fontFamily: "Courgette",fontSize:"3vw"}} variant="subtitle1" color="inherit" className="max-w-512 mt-16">
+                                    Ứng dụng vô địch siêu cấp vũ trụ 
+                                </Typography>
+                            </Fade>
+                    </div>
+                 </Grid>
+                 <Grid item lg={4} sm={6}  xs={12}>
+                    <Fade right>
+                        <div className="right-register" >
+                            <h2 className="title-register">Sign Up</h2>
+                            
+                            
+                            
+                            <hr />
+                            <Alert className="alert alert-danger" style={{ display: error ? "" : "none" }} severity="error">
+                                {error}
+                            </Alert>
+                            <Alert className="alert alert-info" style={{ display: open ? "" : "none" }} severity="info">
+                                New account is successfully created. Please <Link to='/signin'>Sign In</Link>.
+                            </Alert>
+                            {this.signupForm(name, email, password, loading, recaptcha)}
+                            { loading ? (
+                                <Loading />
+                            ) : (
+                                ""
+                            )}
+                            <hr />
+                            <div style={{textAlign:"center",fontFamily:"Courgette"}}>Or</div>
+                            <div style={{textAlign:"center"}}>
+                                <SocialLogin for="signup" />
+                            </div>
+                            
+                        </div>
+                    </Fade>
+                 </Grid>
+                
+            </Grid>
         );
     }
 }
