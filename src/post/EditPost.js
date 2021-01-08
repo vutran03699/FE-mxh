@@ -154,16 +154,19 @@ class EditProfle extends Component {
 
         return(
             <div className="container"> 
-                <h2 className="mt-5 mb-5">Chỉnh sửa bài - {title}</h2>
                 <div className="alert alert-danger" style={{ display: error ? "" : "none" }}>
                     {error}
                 </div>
-                <img 
-                    style={{ display: loading ? "none" : "" , height: "200px", width: "auto" }} 
-                    className="img-thumbnail" 
-                    src={photoUrl} 
-                    alt={title} 
-                />
+                <div className="edit-info">
+                    <h2 className="mt-5 mb-5">Chỉnh sửa bài - {title}</h2>
+                    <img 
+                        style={{ display: loading ? "none" : "" , height: "200px", width: "auto" }} 
+                        className="img-thumbnail" 
+                        src={photoUrl} 
+                        alt={title} 
+                    />
+                </div>
+                
                 {loading ? (
                     <Loading />
                 ) : (

@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.11.2",
+    "@material-ui/icons": "^4.11.2",
     "@material-ui/lab": "^4.0.0-alpha.57",
     "@material-ui/styles": "^4.11.2",
     "@testing-library/jest-dom": "^4.2.4",
@@ -11,8 +12,10 @@
     "@testing-library/user-event": "^7.2.1",
     "clsx": "^1.1.1",
     "emoji-picker-react": "^3.1.6",
+    "material-ui-popup-state": "^1.7.1",
     "mdbreact": "^5.0.1",
     "react": "^16.13.1",
+    "react-bootstrap": "^1.4.0",
     "react-bootstrap-tabs": "^1.0.2",
     "react-confirm-alert": "^2.6.1",
     "react-dom": "^16.13.1",

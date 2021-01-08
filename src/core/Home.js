@@ -5,7 +5,7 @@ import footer from '../css/Footer.css'
 
 const Home = () => (
     <>
-        <div className="container">
+        <div className="container" >
             <Posts />
         </div>
         <footer className="page-footer font-small" style={{ background: "#3E4551" }}>

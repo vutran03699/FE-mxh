@@ -47,7 +47,7 @@ class Posts extends Component {
 
     renderPosts = (posts) => {
         return (
-            <div className="row">
+            <div className="row" >
                 <InfiniteScroll
                     dataLength={posts.length}
                     next={this.fetchData}
@@ -63,7 +63,8 @@ class Posts extends Component {
                         const posterId = post.postedBy ? post.postedBy._id : "";
                         const posterName = post.postedBy ? post.postedBy.name : " Unknown";
                         return (
-                            <div key={i} className="card col-md-12 mb-5" style={{ padding: "0" }} >
+                            <div id="main-post" key={i} className="card col-md-12 mb-5" style={{boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
+                            width:"60%",margin:"auto",padding:"10px",padding: "0" }} >
                                 <div className="card-header">
                                     <img
                                         className="mb-1 mr-2"
@@ -72,7 +73,7 @@ class Posts extends Component {
                                         onError={i => (i.target.src = DefaultProfile)}
                                         alt={posterName}
                                     />
-                                    <Link to={`/user/${posterId}`} style={{ fontSize: "24px" }}>
+                                    <Link to={`/user/${posterId}`} style={{ fontSize: "20px",color:"black" }}>
                                         {posterName}
                                     </Link>
                                     <p

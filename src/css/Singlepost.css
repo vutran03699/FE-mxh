@@ -1,0 +1,37 @@
+.edit-post:hover{
+    text-decoration: none;
+    color: black;
+}
+.edit-post{
+    color: black;
+}
+.back-to-post{
+    color: black;
+}
+.back-to-post:hover{
+    text-decoration: none;
+    color: black;
+}
+.options-post{
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    justify-content: space-evenly;
+    border-bottom: 1px solid lightgray;
+}
+.option-item{
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@media only screen and (max-width: 768px) {
+    #main-post{
+        width: 100%;
+    }
+}
+@media only screen and (max-width: 601px) {
+    #main-post{
+        width: 100%;
+    }
+}

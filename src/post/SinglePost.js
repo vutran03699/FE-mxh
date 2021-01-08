@@ -11,6 +11,12 @@ import {timeDifference} from './timeDifference';
 
 import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
+import Button from '@material-ui/core/Button';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
+import PopupState, { bindTrigger, bindMenu } from 'material-ui-popup-state';
+import MoreVertIcon from '@material-ui/icons/MoreVert';
+import Singlepost from '../css/Singlepost.css'
 
 
 class SinglePost extends Component {
@@ -120,26 +126,64 @@ class SinglePost extends Component {
             return <Redirect to='/signin'></Redirect>
         }
         return(
-            <div className="card col-md-12 mb-5" style={{ padding: "0" }} >
-                <div className="card-header">
+            <div className="card col-md-12 mb-5" style={{boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
+            width:"60%",margin:"auto",padding:"10px" }} >
+                <div className="card-header">  
                     <img 
                         className="mb-1 mr-2"
                         style={{ height: "40px", width: "40px", borderRadius: "50%"  }} 
                         src={`${process.env.REACT_APP_API_URL}/user/photo/${posterId}`}
                         onError={i => (i.target.src = DefaultProfile)} 
                         alt={posterName}
-                    />
-                    <Link to={`/user/${posterId}`} style={{fontSize: "24px"}}>
+                        />
+                    <Link to={`/user/${posterId}`} style={{fontSize: "20px",color:"black"}}>
                             {posterName}
                     </Link>
-                    <p
-                        style={{ marginBottom: "0" }}
-                        className="pull-right mt-2"
-                    >
+                    
+                    {isAuthenticated().user && isAuthenticated().user._id === post.postedBy._id && (
+                        <>
+                            <PopupState style={{}} >
+                                {(popupState) => (
+                                    <React.Fragment>
+                                        <MoreVertIcon variant="text" color="inherit" {...bindTrigger(popupState)} style={{position:"absolute",right:"0",margin:"10px"}}/>   
+                                        <Menu {...bindMenu(popupState)} style={{marginBottom:"5px"}}>
+                                            <MenuItem onClick={popupState.close}>
+                                            <Link className="edit-post" to={`/post/edit/${post._id}`} >
+                                                Edit Post
+                                            </Link>
+                                            </MenuItem>
+                                            <MenuItem onClick={popupState.close}>
+                                            <Link className="back-to-post" to={`/`}>
+                                                Back to posts
+                                            </Link>
+                                            </MenuItem>
+                                            <MenuItem onClick={popupState.close}>
+                                            <p className="delete-post" onClick={this.deleteConfirmed}  >
+                                                Delete Post
+                                            </p>
+                                            </MenuItem>
+                                        
+                                        </Menu>
+                                    </React.Fragment>
+                                )}
+                            </PopupState>          
+                        </>
+                    )}
+                
+                    
+                   
+                   
+                    
+                    <p style={{ fontSize:"12px",marginLeft:"33px",marginTop:"-13px" }} >
                         <span className="ml-2">
                             <i className="far fa-clock"></i>{" "+timeDifference(new Date(), new Date(post.created))}
                         </span>
                     </p>
+                    
+                    
+                    
+                    <p style={{marginTop:"-10px"}}>{post.body}</p>
+                    
                 </div>
                 <Link to={`/post/${post._id}`}>
                     <img 
@@ -147,45 +191,40 @@ class SinglePost extends Component {
                         src={`${process.env.REACT_APP_API_URL}/post/photo/${post._id}`}
                         alt={post.title}
                         style={{ 
+                            marginTop:"-25px",
                             maxHeight: "700px",  
                             backgroundSize: "cover",
                             backgroundRepeat: 'no-repeat',
                             backgroundPosition: "50% 50%" }}
                     />
                 </Link>
-                    {like ? (
-                        <h3>
-                            <i onClick={this.likeToggle} className="fa fa-heart" style={{color: "red", padding: "10px", cursor: "pointer"}} aria-hidden="true"></i>
-                            <i className="far fa-comments ml-3"></i> 
-                        </h3>
+                <div className="options-post">
+                {like ? (
+                        <div className="option-item">
+                            <i onClick={this.likeToggle} className="fa fa-heart" style={{color: "red", cursor: "pointer"}} aria-hidden="true"></i>
+                            
+                        </div>
                     ) : (
-                        <h3>
-                            <i onClick={this.likeToggle} className="fa fa-heart-o" style={{padding: "10px", cursor: "pointer"}} aria-hidden="true"></i>
-                            <i className="far fa-comments ml-3"></i> 
-                        </h3>
+                        <div className="option-item">
+                            <i onClick={this.likeToggle} className="fa fa-heart-o" style={{ cursor: "pointer"}} aria-hidden="true"></i>
+                             
+                        </div>
                     )}
-                    <span style={{fontSize: "20px"}} className="ml-3" >{likes} Likes </span>
+                    <div className="option-item">
+                    <i className="far fa-comments ml-3"></i>
+                    </div>
+                    <div className="option-item">
+                        <span style={{fontSize: "15px",fontWeight:"bold"}} className="ml-3" >{likes} Likes </span>
+                    </div>
+                    
+                    
+                </div>
+                   
                 
                 <div className="card-body">
-                    <h5 className="card-title">{post.title}</h5>
-                    <p className="card-text">{post.body}</p>
-                    <Link
-                        to={`/`}
-                        className="btn btn-raised btn-sm btn-primary mr-5">
-                        Back to posts
-                    </Link>
-                    {isAuthenticated().user && isAuthenticated().user._id === post.postedBy._id && (
-                        <>
-                            <Link
-                                to={`/post/edit/${post._id}`}
-                                className="btn btn-raised btn-sm btn-warning mr-5">
-                                    Edit Post
-                            </Link>
-                            <button onClick={this.deleteConfirmed} className="btn btn-raised btn-sm btn-danger">
-                                Delete Post
-                            </button>
-                        </>
-                    )}
+                    
+                    
+                    
                     <Comment postId={post._id} comments={comments.reverse()} updateComments={this.updateComments} />
                 </div>
             </div>
@@ -201,6 +240,8 @@ class SinglePost extends Component {
                 ) : (
                     this.renderPost(post)
                 )}
+                
+                
             </div>
         );
     }

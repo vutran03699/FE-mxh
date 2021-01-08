@@ -1,19 +1,5 @@
 import React from 'react';
 
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
-import InputBase from '@material-ui/core/InputBase';
-import Badge from '@material-ui/core/Badge';
-import MenuItem from '@material-ui/core/MenuItem';
-import MenuUI from '@material-ui/core/Menu';
-import MenuIcon from '@material-ui/icons/Menu';
-import SearchIcon from '@material-ui/icons/Search';
-import AccountCircle from '@material-ui/icons/AccountCircle';
-import MailIcon from '@material-ui/icons/Mail';
-import NotificationsIcon from '@material-ui/icons/Notifications';
-import MoreIcon from '@material-ui/icons/MoreVert';
 
 import { Link, withRouter } from 'react-router-dom';
 
@@ -32,7 +18,7 @@ const isActive = (history, path) => {
 const Menu = (props) => (
     <nav className="navbar navbar-expand-lg navbar-dark"  
         style={{ 
-            background: "#007991", 
+            background: "black", 
             paddingTop: "15px",
             paddingBottom: "0",
             marginBottom: "50px"
@@ -42,7 +28,7 @@ const Menu = (props) => (
         <a className="navbar-brand" style={{ color: "white", fontFamily: 'Courgette, cursive' }} href="/">
             <i className="fas fa-camera-retro mr-2"></i>SocialApp
         </a>
-        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button style={{marginBottom:"10px"}} className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse " id="navbarSupportedContent" >

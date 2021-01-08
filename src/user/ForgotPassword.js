@@ -29,7 +29,7 @@ class ForgotPassword extends Component {
         const { message, error } = this.state;
         return (
             <Fade left>
-            <div className="container">
+            <div className="main-forgot">
                 <Fade top>
                     
                         <img className="img-logo"  src={require('../images/logo.png')} alt="logo"/>
