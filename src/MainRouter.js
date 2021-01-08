@@ -23,7 +23,7 @@ const MainRouter = () => (
     <div>
         <Menu />
         <Switch>
-            <Route exact path="/" component={Home} />
+            <PrivateRoute exact path="/" component={Home} />
             <Route exact path="/forgot-password" component={ForgotPassword} />
             <Route exact path="/reset-password/:resetPasswordToken" component={ResetPassword} />
             <PrivateRoute exact path="/post/create" component={NewPost} />
