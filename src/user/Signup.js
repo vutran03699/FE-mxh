@@ -155,7 +155,7 @@ class Signup extends Component {
         const { name, email, password, error, open, loading, recaptcha } = this.state;
         return (
             <Grid container spacing={2} style={{overflowX:"hidden"}}>
-                 <Grid item lg={8} sm={6} xs={12}>
+                 <Grid item lg={7} sm={6} xs={12}>
                     <div className="left-register">
                             <Fade top>
                                 <img className="img-logo" style={{display:"block",marginBottom:"10px",marginLeft:"auto",marginRight:"auto",maxWidth:"200px"}} src={require('../images/logo.png')} alt="logo"/>  
@@ -173,7 +173,7 @@ class Signup extends Component {
                             </Fade>
                     </div>
                  </Grid>
-                 <Grid item lg={4} sm={6}  xs={12}>
+                 <Grid item lg={5} sm={6}  xs={12}>
                     <Fade right>
                         <div className="right-register" >
                             <h2 className="title-register">Sign Up</h2>

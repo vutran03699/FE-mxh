@@ -56,7 +56,7 @@ class Chat extends Component {
                 <div className="page-title">
                     <div className="row gutters">
                         <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                            <h5 className="title">Chats</h5>
+                            
                         </div>
                     </div>
                 </div>
@@ -113,12 +113,7 @@ class Chat extends Component {
                                             </ul>
                                         </div>
                                     </div>
-                                    <div className="col-xl-8 col-lg-8 col-md-8 col-sm-9 col-9" 
-                                        style={{
-                                            borderRight: "1px solid black",
-                                            borderBottom: "1px solid black"
-                                        }}
-                                    >
+                                    <div className="col-xl-8 col-lg-8 col-md-8 col-sm-9 col-9" >
                                         <div className="selected-user">
                                             <span>To: <span className="name"></span></span>
                                         </div>

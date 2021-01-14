@@ -6,9 +6,11 @@ import DefaultProfile from '../images/avatar.jpg';
 import Picker from 'emoji-picker-react';
 import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
-import { timeDifference } from './timeDifference';
-
-
+import {timeDifference} from './timeDifference';
+import { Button } from 'react-bootstrap';
+import { Typography , TextField, Input, IconButton} from '@material-ui/core';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import SentimentSatisfiedOutlinedIcon from '@material-ui/icons/SentimentSatisfiedOutlined';
 import Loading from '../loading/Loading';
 
 import '../css/Comment.css';
@@ -55,7 +57,7 @@ class Comment extends Component {
             return false
         }
         if (this.isValid()) {
-            this.setState({ loading: true })
+            this.setState({loading: true})
             const userId = isAuthenticated().user._id;
             const token = isAuthenticated().token;
             const postId = this.props.postId;
@@ -79,7 +81,7 @@ class Comment extends Component {
     };
 
     deleteComment = (comment) => {
-        this.setState({ loading: true })
+        this.setState({loading: true})
         const userId = isAuthenticated().user._id;
         const token = isAuthenticated().token;
         const postId = this.props.postId;
@@ -89,7 +91,7 @@ class Comment extends Component {
                 if (data.error) {
                     console.log(data.error)
                 } else {
-                    this.setState({ loading: false })
+                    this.setState({loading: false})
                     // gửi cập nhật/danh sách mới của ý kiến để các thành phần comment trc
                     this.props.updateComments(data.comments);
                 }
@@ -124,80 +126,94 @@ class Comment extends Component {
     render() {
         const { text, error, showPicker, loading } = this.state;
         const { comments } = this.props;
-        return (
-            <diV>
+
+        return(
+            <div className="comment-post">
                 { loading ? (
                     <Loading />
                 ) : (
-                        <div>
-                            <h4 className="mt-5 mb-5">
-                                Để lại bình luận <span className="pull-right">{comments.length} bình luận</span>
-                            </h4>
-                            <div className="panel-body">
-                                <form onSubmit={this.addComment}>
-                                    <div className="input-group">
-                                        <input
-                                            className="form-control"
-                                            type="text"
-                                            onChange={this.handleChange}
-                                            value={text}
-                                            placeholder="Leave a comment..."
-                                        />
-                                        <div>
-                                            <button type="button" onClick={() => this.setState({ showPicker: !showPicker })} className="btn btn-sm btn-primary"><i style={{ fontSize: "20px" }} className="far fa-smile"></i></button>
-                                        </div>
-                                    </div>
-                                    <button type="submit" className="btn btn-raised btn-sm btn-info pull-right mt-3 mb-3">Thêm bình luận</button>
-                                </form>
-                                {showPicker ? <Picker onEmojiClick={this.onEmojiClick} /> : ""}
-                                <div className="alert alert-danger mt-5" style={{ display: error ? "" : "none" }}>
-                                    {error}
+                    <div>
+                            
+                            <p style={{display:"flex",justifyContent:"space-between",fontWeight:"bold",fontSize:"16px"}}>
+                                Để lại bình luận <span>{comments.length} bình luận</span>
+                            </p>
+                       <div style={{position:"absolute",zIndex:"10",top:"589px",right:"0"}}>
+                        {showPicker ? <Picker onEmojiClick={this.onEmojiClick} /> : ""}
+                       </div>
+                        
+                        <div className="panel-body">
+                        
+                            <form onSubmit={this.addComment}>
+                                <div className="input-group">
+                                    <Input
+                                        style={{marginTop:"5px"}}
+                                        fullWidth
+                                        placeholder="Write your comments"
+                                        onChange={this.handleChange}
+                                        value={text}
+                                        endAdornment={
+                                            <InputAdornment style={{cursor:"point"}} position="end" onClick={() => this.setState({ showPicker: !showPicker })}>
+                                                <IconButton>
+                                                    <SentimentSatisfiedOutlinedIcon />
+                                                </IconButton>
+                                            </InputAdornment>
+                                          }
+                                    />
                                 </div>
-                                <br />
-                                <div className="clearfix"></div>
-                                <hr />
-                                <ul className="media-list">
-                                    {comments.reverse().map((comment, i) => (
-                                        <li key={i} className="media">
-                                            <Link to={`/user/${comment.postedBy._id}`} >
-                                                <img
-                                                    src={`${process.env.REACT_APP_API_URL}/user/photo/${comment.postedBy._id}`}
-                                                    onError={i => (i.target.src = DefaultProfile)}
-                                                    alt={comment.postedBy.name}
-                                                    className="rounded-circle z-depth-2 mr-2"
-                                                />
-                                            </Link>
-                                            <div className="media-body">
-                                                <span className="text-muted pull-right">
-                                                    <small className="text-muted">
-                                                        <i className="far fa-clock"></i>{" " + timeDifference(new Date(), new Date(comment.created))}
-                                                    </small>
-                                                    <br />
-                                                    <span>
-                                                        {isAuthenticated().user && isAuthenticated().user._id === comment.postedBy._id && (
-                                                            <>
-                                                                <span onClick={() => this.deleteConfirmed(comment)} className="text-danger float-right mr-2 mt-2 " style={{ cursor: "pointer" }}>
-                                                                    <i className="fas fa-trash"></i>
-                                                                </span>
-                                                            </>
-                                                        )}
-                                                    </span>
-                                                </span>
-                                                <Link to={`/user/${comment.postedBy._id}`} >
-                                                    <strong className="text-success">{comment.postedBy.name}</strong>
-                                                </Link>
-                                                <p>
-                                                    {comment.text}
-                                                </p>
-                                            </div>
-                                        </li>
-                                    ))}
-                                </ul>
+                                               
+                            </form>
+                            
+                            <div className="alert alert-danger mt-5" style={{ display: error ? "" : "none" }}>
+                                {error}
                             </div>
+
+
+                            <br />
+                            <div className="clearfix"></div>
+                            <hr />
+                                <ul className="media-list" >
+                                {comments.reverse().map((comment, i) => (
+                                    <li key={i} className="media">
+                                        <Link to={`/user/${comment.postedBy._id}`} >
+                                            <img 
+                                                src={`${process.env.REACT_APP_API_URL}/user/photo/${comment.postedBy._id}`}
+                                                onError={i => (i.target.src = DefaultProfile)}
+                                                alt={comment.postedBy.name}
+                                                className="rounded-circle z-depth-2 mr-2"
+                                            />
+                                        </Link>
+                                        <div className="media-body">
+                                            <span className="text-muted pull-right">
+                                                <small className="text-muted">
+                                                    <i className="far fa-clock"></i>{" "+timeDifference(new Date(), new Date(comment.created))}
+                                                </small>
+                                                <br />
+                                                <span>
+                                                    {isAuthenticated().user && isAuthenticated().user._id === comment.postedBy._id && (
+                                                        <>
+                                                            <span onClick={() => this.deleteConfirmed(comment)} className="text-danger float-right mr-2 mt-2 " style={{ cursor: "pointer" }}>
+                                                                <i className="fas fa-trash"></i>
+                                                            </span>
+                                                        </>
+                                                    )}
+                                                </span>
+                                            </span>
+                                        <Link to={`/user/${comment.postedBy._id}`} >
+                                            <strong className="text-success">{comment.postedBy.name}</strong>
+                                        </Link>
+                                            <p>
+                                                {comment.text}
+                                            </p>
+                                        </div>
+                                    </li>
+                                ))}
+                            </ul>
                         </div>
-                    )}
-            </diV>
+                </div>
+                )}
+        </div>
         );
     }
 }
+
 export default Comment;

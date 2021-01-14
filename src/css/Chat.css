@@ -6,12 +6,33 @@
     border-radius: 3px 0 0 0;
     padding: .75rem 1rem;
 }
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #ffffff; 
+  border-radius: 25px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, black, transparent); 
+  border-radius: 25px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
 
 .chat-search-box .input-group .form-control {
     -webkit-border-radius: 2px 0 0 2px;
     -moz-border-radius: 2px 0 0 2px;
     border-radius: 2px 0 0 2px;
-    border-right: 0;
+    
 }
 
 .chat-search-box .input-group .form-control:focus {
@@ -38,6 +59,7 @@
 }
 
 
+
 /************************************************
 	************************************************
 									Users Container
@@ -53,10 +75,7 @@
     /* ====================================================== */
     /* ====================================================== */
     /* ====================================================== */
-    border-bottom: 1px solid black;
-    border-top: 1px solid black;
-    border-left: 1px solid black;
-    border-right: 1px solid black;
+    
     height: 100%;
     display: -ms-flexbox;
     display: flex;
@@ -97,6 +116,9 @@
     background-image: -o-linear-gradient(to right, #e9eff5, #ffffff);
     /* Opera 11.10+ */
     background-image: linear-gradient(to right, #e9eff5, #ffffff);
+    background: linear-gradient(45deg, black, transparent);
+    border-radius: 55px;
+    padding: 10px;
 }
 
 .users .person.active-user {
@@ -200,10 +222,6 @@
     padding: 0 15px;
     min-height: 64px;
     line-height: 64px;
-    border-bottom: 1px solid black;
-    border-top: 1px solid black;
-    -webkit-border-radius: 0 3px 0 0;
-    -moz-border-radius: 0 3px 0 0;
     border-radius: 0 3px 0 0;
 }
 
@@ -253,19 +271,20 @@
 
 .chat-container li .chat-name {
     font-size: .75rem;
-    color: #999999;
+    color: #f8f8f8;
     text-align: center;
 }
 
 .chat-container li .chat-text {
-    padding: .4rem 1rem;
+    padding: 6px 10px;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
-    border-radius: 4px;
+    border-radius: 10px;
     background: #ffffff;
     font-weight: 300;
     line-height: 150%;
     position: relative;
+    word-break: break-all;
 }
 
 .chat-container li .chat-text:before {
@@ -275,8 +294,7 @@
     height: 0;
     top: 10px;
     left: -20px;
-    border: 10px solid;
-    border-color: transparent #ffffff transparent transparent;
+
 }
 
 .chat-container li.chat-right > .chat-text {
@@ -285,7 +303,6 @@
 
 .chat-container li.chat-right > .chat-text:before {
     right: -20px;
-    border-color: transparent transparent transparent #ffffff;
     left: inherit;
 }
 
@@ -357,7 +374,6 @@
     right: 0;
     bottom: 0;
     background-color: #ffffff;
-    border-top: 1px solid white;
 }
 
 ul {
@@ -366,12 +382,9 @@ ul {
     padding: 0;
 }
 .card-chat {
-    border: 0;
-    background-image: url('http://demo.thedevelovers.com/dashboard/queenadmin-1.2/assets/img/gray_jean.png?1353438653');
-    background-repeat: repeat;
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
-    border-radius: 2px;
+
+    background: linear-gradient(45deg, black, transparent);
+    border-radius: 25px;
     margin-bottom: 2rem;
-    box-shadow: none;
+    box-shadow: 20px 20px 50px rgba(0,0,0,0.5);
 }

@@ -4,6 +4,9 @@ import { create } from "./apiPost";
 import { isAuthenticated } from "../auth";
 import Loading from '../loading/Loading';
 import { Redirect } from 'react-router-dom';
+import { Typography , TextField, Input} from '@material-ui/core';
+import { Button } from 'react-bootstrap';
+import '../css/newpost.css'
 
 
 
@@ -88,8 +91,8 @@ class NewPost extends Component {
     newPostForm = (title, body) => (
         <form>
             <div className="form-group">
-                <label className="text-muted">Photo</label>
-                <input
+                <Input
+                    label="Photo"
                     onChange={this.handleChange}
                     name="photo"
                     type="file"
@@ -97,19 +100,11 @@ class NewPost extends Component {
                     className="form-control"
                 />
             </div>
+           
             <div className="form-group">
-                <label className="text-muted">Title</label>
-                <input
-                    onChange={this.handleChange}
-                    name="title"
-                    type="text"
-                    className="form-control"
-                    value={title}
-                />
-            </div>
-            <div className="form-group">
-                <label className="text-muted">Body</label>
-                <textarea
+                <TextField
+                    label="Status"
+                    multiline
                     onChange={this.handleChange}
                     type="text"
                     name="body"
@@ -118,7 +113,7 @@ class NewPost extends Component {
                 />
             </div>
 
-            <button onClick={this.clickSubmit} className="btn btn-raised btn-primary">Create Post</button>
+            <Button onClick={this.clickSubmit} variant="outline-dark" block>Create Post</Button>
         </form>
     );
 
@@ -130,8 +125,8 @@ class NewPost extends Component {
         }
 
         return (
-            <div className="container">
-                <h2 className="mt-5 mb-5">Create a new post</h2>
+            <div className="main-newPost" >
+                <h2 className="mt-5 mb-5" style={{textAlign:"center"}}>Create a new post</h2>
                 <div className="alert alert-danger" style={{ display: error ? "" : "none" }}>
                     {error}
                 </div>

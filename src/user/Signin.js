@@ -8,7 +8,7 @@ import logo from '../images/logo.png'
 import Login from '../css/Login.css'
 import Loading from '../loading/Loading';
 import Grid from '@material-ui/core/Grid';
-import { Typography , TextField} from '@material-ui/core';
+import { Typography , TextField,Input} from '@material-ui/core';
 import Fade from 'react-reveal'
 import { Button } from 'react-bootstrap';
 
@@ -102,6 +102,8 @@ class Signin extends Component {
             <div className="form-group">
                 
                 <TextField
+                    
+                    
                     label="Email"
                     variant="outlined"
                     onChange={this.handleChange}
@@ -114,6 +116,7 @@ class Signin extends Component {
             <div className="form-group">
                 
                 <TextField
+                    
                     label="Password"
                     variant="outlined"
                     onChange={this.handleChange}
@@ -129,6 +132,7 @@ class Signin extends Component {
                     variant="outline-dark"
                     block
                     >
+                        
                     Log In
             </Button>
         </form>
@@ -142,7 +146,7 @@ class Signin extends Component {
         }
         return (
             <Grid container spacing={2} style={{overflowX:"hidden"}}  >
-                <Grid item lg={8} sm={6} xs={12} >
+                <Grid item lg={7} sm={6} xs={12} >
                     <div className="left-login">
                         <Fade top >
                             <img className="img-logo" style={{display:"block",marginLeft:"auto",marginRight:"auto",maxWidth:"200px",marginBottom:"10px"}} src={require('../images/logo.png')} alt="logo"/>  
@@ -157,13 +161,13 @@ class Signin extends Component {
                             </Typography>
                         </Fade>
                         <Fade up>
-                            <Typography className="title-des" style={{textAlign:"center",fontFamily: "Courgette",fontSize:"3vw"}} variant="subtitle1" color="inherit" className="max-w-512 mt-16">
+                            <Typography className="title-des" style={{textAlign:"center",fontFamily: "Time new roman",fontSize:"3vw"}} variant="subtitle1" color="inherit" className="max-w-512 mt-16">
                                 Ứng dụng vô địch siêu cấp vũ trụ 
                             </Typography>
                         </Fade>
                     </div>
                 </Grid>
-                <Grid item lg={4} sm={6}  xs={12}   >
+                <Grid item lg={5} sm={6}  xs={12}   >
                     <Fade right>
                     <div className="right-login">
                         <h2 style={{fontFamily: "Courgette",textAlign:"center"}}>Sign In</h2>
@@ -173,20 +177,25 @@ class Signin extends Component {
                         <div className="alert alert-danger" style={{ display: error ? "" : "none" }}>
                             {error}
                         </div>
-                        {this.signinForm(email, password, loading,recaptcha)}
-
+                        <div class="loading-login" >
+                            
                         {loading ? (
-                            <Loading />
-                        ) : (
-                                ""
-                            )}
+                                <Loading />
+                            ) : (
+                                this.signinForm(email, password, loading,recaptcha)
+                                )}
+                           
+                        </div>
                             
                             
                             
                         <p className="forgot-password">
                             <Link to="/forgot-password">
                                 {" "}
-                            Forgot Password
+                                <span style={{color:"black"}}>
+                                Forgot Password
+                                </span>
+                            
                             </Link>
                         </p>
                         <hr/>

@@ -5,6 +5,7 @@ import { signout } from '../auth/index';
 import { Redirect } from 'react-router-dom';
 
 import { confirmAlert } from 'react-confirm-alert';
+import Button from '@material-ui/core/Button';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 
 class DeleteUser extends Component {
@@ -48,9 +49,9 @@ class DeleteUser extends Component {
             return <Redirect to='/'></Redirect>
         }
         return (
-            <button onClick={this.deleteConfirmed} className="btn btn-sm btn-raised btn-danger">
+            <Button onClick={this.deleteConfirmed} className="" variant="outlined">
                 Delete Profile
-            </button>
+            </Button>
         );
     }
 }

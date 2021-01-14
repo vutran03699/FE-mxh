@@ -6,6 +6,8 @@ import { read, update, updateUser } from "./apiUser";
 import { isAuthenticated } from "../auth";
 import { Redirect } from 'react-router-dom';
 import DefaultProfile from '../images/avatar.jpg';
+import { Typography , TextField, Input} from '@material-ui/core';
+import {Button} from 'react-bootstrap';
 
 
 class EditProfle extends Component {
@@ -117,8 +119,8 @@ class EditProfle extends Component {
     signupForm = (name, email, password, loading, about) => (
         <form>
             <div className="form-group">
-                <label className="text-muted">Profile Photo</label>
-                <input
+                
+                <Input
                     onChange={this.handleChange}
                     name="photo"
                     type="file"
@@ -127,8 +129,8 @@ class EditProfle extends Component {
                 />
             </div>
             <div className="form-group">
-                <label className="text-muted">Name</label>
-                <input
+                <TextField
+                    label="Name"
                     onChange={this.handleChange}
                     name="name"
                     type="text"
@@ -137,8 +139,8 @@ class EditProfle extends Component {
                 />
             </div>
             <div className="form-group">
-                <label className="text-muted">Email</label>
-                <input
+                <TextField
+                    label="Email"
                     onChange={this.handleChange}
                     type="email"
                     name="email"
@@ -147,8 +149,9 @@ class EditProfle extends Component {
                 />
             </div>
             <div className="form-group">
-                <label className="text-muted">About</label>
-                <textarea
+                <TextField
+                    multiline
+                    label="About"
                     onChange={this.handleChange}
                     type="text"
                     name="about"
@@ -157,8 +160,8 @@ class EditProfle extends Component {
                 />
             </div>
             <div className="form-group">
-                <label className="text-muted">Password</label>
-                <input
+                <TextField
+                    label="Password"
                     onChange={this.handleChange}
                     type="password"
                     name="password"
@@ -167,7 +170,7 @@ class EditProfle extends Component {
                 />
             </div>
             
-            <button onClick={this.clickSubmit} className="btn btn-raised btn-primary">Update</button>
+            <Button variant="outline-dark" block  onClick={this.clickSubmit}  >Update</Button>
         </form>
     );
 
@@ -180,14 +183,22 @@ class EditProfle extends Component {
         const photoUrl = id ? `${process.env.REACT_APP_API_URL}/user/photo/${id}?${new Date().getTime()}` : DefaultProfile ;
 
         return (
-            <div className="container">
-                <h2 className="mt-5 mb-5">Edit Profile</h2>
+            <div className="container" 
+            style=
+            {{backgroundColor:"white",
+            width:"60%",
+            boxShadow:"20px 20px 50px rgba(0,0,0,0.5)",
+            padding:"20px",
+            borderRadius:"16px"
+            }}>
+                
                 <div className="alert alert-danger" style={{ display: error ? "" : "none" }}>
                     {error}
                 </div>
                 <img 
                     style={{ display: loading ? "none" : "" , height: "200px", width: "auto" }} 
                     className="img-thumbnail" 
+                    style={{boxShadow:"20px 20px 50px rgba(0,0,0,0.5)",marginLeft:"auto",marginRight:"auto", display:"block",borderRadius:"100%"}}
                     src={photoUrl} 
                     onError={i => (i.target.src = DefaultProfile)}
                     alt={name} 

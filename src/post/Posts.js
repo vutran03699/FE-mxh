@@ -6,6 +6,7 @@ import Loading from '../loading/Loading';
 import DefaultProfile from '../images/avatar.jpg'
 import { timeDifference } from './timeDifference';
 import InfiniteScroll from 'react-infinite-scroll-component';
+import { Button } from 'react-bootstrap';
 
 class Posts extends Component {
     constructor() {
@@ -53,11 +54,7 @@ class Posts extends Component {
                     next={this.fetchData}
                     hasMore={this.state.hasMore}
                     loader={<Loading />}
-                    endMessage={
-                        <p style={{ textAlign: 'center' }}>
-                            <b>All posts rendered.. Please refresh to see new posts if any</b>
-                        </p>
-                    }
+                    
                 >
                     { posts.map((post, i) => {
                         const posterId = post.postedBy ? post.postedBy._id : "";
@@ -65,7 +62,7 @@ class Posts extends Component {
                         return (
                             <div id="main-post" key={i} className="card col-md-12 mb-5" style={{boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
                             width:"60%",margin:"auto",padding:"10px",padding: "0" }} >
-                                <div className="card-header">
+                                <div className="card-header" style={{borderBottom:"none"}}>
                                     <img
                                         className="mb-1 mr-2"
                                         style={{ height: "40px", width: "40px", borderRadius: "50%" }}
@@ -75,6 +72,7 @@ class Posts extends Component {
                                     />
                                     <Link to={`/user/${posterId}`} style={{ fontSize: "20px",color:"black" }}>
                                         {posterName}
+                                        
                                     </Link>
                                     <p
                                         style={{ marginBottom: "0" }}
@@ -85,6 +83,11 @@ class Posts extends Component {
                                         </span>
                                     </p>
                                 </div>
+                                <div style={{padding:"15px"}}>
+                                    <h5 className="card-title">{post.title}</h5>
+                                    <p className="card-text">{post.body}</p>
+                                </div>
+                                
                                 <Link to={`/post/${post._id}`}>
                                     <img
                                         className="card-img-top"
@@ -99,19 +102,19 @@ class Posts extends Component {
                                     />
                                 </Link>
                                 <div className="card-body">
-                                    <h5 className="card-title">{post.title}</h5>
-                                    <p className="card-text">{post.body}</p>
+                                    
                                     <Link
                                         style={{
-                                            background: "#56ccf2",
-                                            background: "-webkit-linear-gradient(to left, #56ccf2, #2f80ed)",
-                                            background: "linear-gradient(to left, #56ccf2, #2f80ed)",
+                                           textDecoration:"none",
                                             borderRadius: "20px",
                                             padding: "10px"
                                         }}
                                         to={`/post/${post._id}`}
-                                        className="btn btn-raised btn-sm btn-primary">
-                                        Read More
+                                        className="">
+                                            <Button variant="outline-dark" block>
+                                                Read More
+                                            </Button>
+                                        
                                 </Link>
                                 </div>
 

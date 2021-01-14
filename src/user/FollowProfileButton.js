@@ -1,5 +1,7 @@
+import { Button } from '@material-ui/core';
 import React, { Component } from 'react';
 import { follow, unfollow } from './apiUser';
+
 
 class FollowProfileButton extends Component{
 
@@ -16,9 +18,9 @@ class FollowProfileButton extends Component{
             <>
                 { !this.props.following ? 
                     (
-                        <button onClick={this.followClick} className="btn btn-sm btn-info btn-raised">Follow</button>
+                        <Button onClick={this.followClick} variant="outlined" className="">Follow</Button>
                     ) : (
-                        <button onClick={this.unfollowClick} className="btn btn-sm btn-raised btn-danger">UnFollow</button>
+                        <Button onClick={this.unfollowClick} variant="outlined" className="">UnFollow</Button>
                     )
                 } 
             </>

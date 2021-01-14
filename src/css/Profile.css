@@ -3,6 +3,7 @@ body {
     background-repeat: repeat;
 }
 
+
 .navbar-collapse.in {
   display: block !important;
 }
@@ -34,12 +35,12 @@ body {
   margin-bottom: 30px;
 }
 .profile-info-left .section {
-  margin-top: 50px;
+  text-align: center;
 }
 .profile-info-left .section h3 {
   font-size: 1.1em;
   font-weight: 700;
-  border-bottom: 1px solid #ccc;
+  
   padding-bottom: 10px;
 }
 .profile-info-left ul.list-social > li {
@@ -70,6 +71,16 @@ body {
     position: relative;
     top: -70px;
   }
+  .tab-content{
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;;
+  }
+  .row .post{
+    margin-left: -15px !important;
+  }
+  
 }
 
 .user-follower,
@@ -205,7 +216,10 @@ body {
 .activity-item + .btn {
   margin-bottom: 15px;
 }
-
+.nav {
+  display: flex;
+  justify-content: space-evenly;
+}
 
 .nav-tabs > li > a {
   -moz-border-radius-topleft: 2px;
@@ -217,6 +231,8 @@ body {
 }
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
   cursor: pointer;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .nav-pills > li > a {
@@ -244,6 +260,8 @@ body {
 .tab-content {
   padding: 30px 15px 15px 15px;
   background-color: #fff;
+  display: flex;
+  justify-content: center;
 }
 
 .nav.nav-tabs-custom-colored > li > a {
@@ -338,8 +356,8 @@ figure.snip1205 {
   position: relative;
   overflow: hidden;
   margin: 10px;
-  height: 200px;
-  width: 200px;
+  height: 300px;
+  width: 300px;
   background: #000000;
   text-align: center;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
@@ -385,7 +403,7 @@ figure.snip1205.blue i {
   color: #20638f;
 }
 figure.snip1205.red {
-  background-color: #ab3326;
+  background-color: #0a0201a9;
 }
 figure.snip1205.red i {
   color: #962d22;

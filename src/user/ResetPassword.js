@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { resetPassword } from "../auth";
-
+import { Button } from 'react-bootstrap';
+import { Typography , TextField} from '@material-ui/core';
 class ResetPassword extends Component {
     constructor(props) {
         super(props);
@@ -32,7 +33,7 @@ class ResetPassword extends Component {
     render() {
         const { message, error } = this.state;
         return (
-            <div className="container">
+            <div className="container" style={{padding:"35px",borderRadius:"25px" ,width:"700px", background:"white",boxShadow:"20px 20px 50px rgba(0,0,0,0.5)"}}>
                 <h2 className="mt-5 mb-5">Reset your Password</h2>
 
                 <div className="alert alert-danger" style={{ display: error ? "" : "none" }}>
@@ -43,10 +44,12 @@ class ResetPassword extends Component {
                 </div>
                 <form>
                     <div className="form-group mt-5">
-                        <input
+                        <TextField
+                            label="Your new password"
+                            autoFocus={true}
+                            variant="outlined"
                             type="password"
                             className="form-control"
-                            placeholder="Your new password"
                             value={this.state.newPassword}
                             name="newPassword"
                             onChange={e =>
@@ -59,12 +62,14 @@ class ResetPassword extends Component {
                             autoFocus
                         />
                     </div>
-                    <button
+                    <Button
+                        variant="outline-dark"
                         onClick={this.resetPassword}
-                        className="btn btn-raised btn-primary"
+                        className=""
+                        block
                     >
                         Reset Password
-                    </button>
+                    </Button>
                 </form>
             </div>
         );

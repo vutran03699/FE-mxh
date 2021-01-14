@@ -80,14 +80,14 @@ const Menu = (props) => (
                     </li> 
                     <div className="dropdown">
                         <button style={{color: "#fff"}} className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i className="fas fa-user-cog mr-1"></i>{`${isAuthenticated().user.name}'s profile`}
+                        <i className="fas fa-user-cog mr-1"></i>{`${isAuthenticated().user.name}`}
                         </button>
                         <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <Link 
                                 className="dropdown-item" 
                                 to={`/user/${isAuthenticated().user._id}`}
                             >
-                                <i className="fas fa-user mr-1"></i>Your Profile
+                                <i className="fas fa-user mr-1"></i> Profile
                             </Link>
                             <Link
                                 className="dropdown-item"

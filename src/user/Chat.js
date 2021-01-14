@@ -11,6 +11,9 @@ import DefaultProfile from '../images/avatar.jpg';
 import {DisplayTime12Hour} from '../post/timeDifference';
 import Picker from 'emoji-picker-react';
 import Loading from '../loading/Loading';
+import { Typography , TextField,Input,IconButton} from '@material-ui/core';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import SentimentSatisfiedOutlinedIcon from '@material-ui/icons/SentimentSatisfiedOutlined';
 
 const socketUrl = `${process.env.REACT_APP_API_URL}`;
 let socket;
@@ -131,11 +134,11 @@ class Chat extends Component {
     renderChat = (chat, i) => {
         if (chat.sender._id === isAuthenticated().user._id) {
             return <li key={i} className="chat-right">
-                <div className="chat-hour">
+                <div className="chat-hour" style={{color:"white"}}>
                     { DisplayTime12Hour(new Date(chat.time)) }
                     {/* <br /> */}
                     {/* {new Date(chat.time).getDate()} / {new Date(chat.time).getMonth()+1} / {new Date(chat.time).getFullYear()} */}
-                    <span className="fa fa-check-circle ml-1"></span>
+                    <span className="fa fa-check-circle ml-1" style={{color:"black"}}></span>
                 </div>
                 <div className="chat-text">
                     {chat.message}
@@ -150,11 +153,11 @@ class Chat extends Component {
                 <div className="chat-text">
                     {chat.message}
                 </div>
-                <div className="chat-hour">
+                <div className="chat-hour" style={{color:"white"}}>
                     { DisplayTime12Hour(new Date(chat.time)) }
                     {/* <br /> */}
                     {/* {new Date(chat.time).getDate()} / {new Date(chat.time).getMonth()+1} / {new Date(chat.time).getFullYear()} */}
-                    <span className="fa fa-check-circle ml-1"></span>
+                    <span className="fa fa-check-circle ml-1" style={{color:"black"}}></span>
                 </div>
             </li>
         }
@@ -168,7 +171,7 @@ class Chat extends Component {
                 <div className="page-title">
                     <div className="row gutters">
                         <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                            <h5 className="title">Chats</h5>
+                            
                         </div>
                     </div>
                 </div>
@@ -206,7 +209,7 @@ class Chat extends Component {
                                                                 />
                                                             </div>
                                                             <p className="name-time">
-                                                                <span className="name">{ user.name }</span>
+                                                                <span className="name" style={{color:"white"}}>{ user.name }</span>
                                                             </p>
                                                         </li>
                                                     </a>
@@ -214,12 +217,7 @@ class Chat extends Component {
                                             </ul>
                                         </div>
                                     </div>
-                                    <div className="col-xl-8 col-lg-8 col-md-8 col-sm-9 col-9" 
-                                        style={{
-                                            borderRight: "1px solid black",
-                                            borderBottom: "1px solid black"
-                                        }}
-                                    >
+                                    <div className="col-xl-8 col-lg-8 col-md-8 col-sm-9 col-9"  >
                                         <div className="selected-user">
                                             <span>To: <span className="name">{reciever.name}</span></span>
                                         </div>
@@ -233,11 +231,18 @@ class Chat extends Component {
                                                 </ul>
                                             </div>
                                         </ScrollToBottom>
+                                        
+                                        
                                         <div className="form-group mt-3 mb-3 mr-3 ml-3">
                                             <form onSubmit={this.sendMessage}>
                                                 <div className="form-group mt-5">
+                                                    <div style={{position:"absolute",zIndex:"10",top:"262px",right:"0"}}>
+                                                            {showPicker ? <Picker onEmojiClick={this.onEmojiClick} /> : ""}
+                                                    </div>
                                                     <div className="input-group">
-                                                        <input
+                                                        <Input
+                                                            autoFocus={true}
+                                                            
                                                             type="text"
                                                             className="form-control"
                                                             placeholder="Your message..."
@@ -248,20 +253,20 @@ class Chat extends Component {
                                                                     message: e.target.value,
                                                                 })
                                                             }
+                                                            endAdornment={
+                                                                <InputAdornment style={{cursor:"point"}} position="end" onClick={() => this.setState({ showPicker: !showPicker })}>
+                                                                    <IconButton>
+                                                                        <SentimentSatisfiedOutlinedIcon />
+                                                                    </IconButton>
+                                                                </InputAdornment>
+                                                              }
                                                         />
-                                                        <button type="button" onClick={() => this.setState({ showPicker: !showPicker })} className="btn btn-sm btn-primary">
-                                                            <i style={{fontSize: "20px"}} className="far fa-smile"></i>
-                                                        </button>
+                                                        
                                                     </div>
                                                 </div>
-                                                <button
-                                                    type="submit"
-                                                    className="btn btn-raised btn-primary pull-right"
-                                                >
-                                                    Send
-                                                </button>
+                                                
                                             </form>
-                                            {showPicker ? <Picker onEmojiClick={this.onEmojiClick} /> : ""}
+                                            
                                         </div>
                                     </div>
                                 </div>

@@ -4,7 +4,9 @@ import Loading from '../loading/Loading';
 import { singlePost, update } from './apiPost';
 import { isAuthenticated } from "../auth";
 import { Redirect } from 'react-router-dom';
-
+import Grid from '@material-ui/core/Grid';
+import '../css/editpost.css'
+import { Typography , TextField,Button,Input} from '@material-ui/core';
 
 class EditProfle extends Component {
 
@@ -109,10 +111,11 @@ class EditProfle extends Component {
     };
 
     editPostForm = (title, body) => (
-        <form>
+        <form >
             <div className="form-group">
-                <label className="text-muted">Ảnh</label>
-                <input
+                
+                <Input
+                    
                     onChange={this.handleChange}
                     name="photo"
                     type="file"
@@ -121,8 +124,8 @@ class EditProfle extends Component {
                 />
             </div>
             <div className="form-group">
-                <label className="text-muted">Tiêu đề</label>
-                <input
+                <TextField
+                    label="Tiêu đề"
                     onChange={this.handleChange}
                     name="title"
                     type="text"
@@ -131,8 +134,11 @@ class EditProfle extends Component {
                 />
             </div>
             <div className="form-group">
-                <label className="text-muted">Nội dung</label>
-                <textarea
+                
+                <TextField
+                    label="Nội dung"
+                    block
+                    multiline
                     onChange={this.handleChange}
                     type="text"
                     name="body"
@@ -141,7 +147,7 @@ class EditProfle extends Component {
                 />
             </div>
 
-            <button onClick={this.clickSubmit} className="btn btn-raised btn-primary">Đăng bài viết</button>
+            <Button onClick={this.clickSubmit} block variant="outlined" className="">Đăng bài viết</Button>
         </form>
     );
 
@@ -153,26 +159,39 @@ class EditProfle extends Component {
         const photoUrl = `${process.env.REACT_APP_API_URL}/post/photo/${id}?${new Date().getTime()}`;
 
         return(
-            <div className="container"> 
-                <div className="alert alert-danger" style={{ display: error ? "" : "none" }}>
-                    {error}
-                </div>
-                <div className="edit-info">
-                    <h2 className="mt-5 mb-5">Chỉnh sửa bài - {title}</h2>
-                    <img 
-                        style={{ display: loading ? "none" : "" , height: "200px", width: "auto" }} 
-                        className="img-thumbnail" 
-                        src={photoUrl} 
-                        alt={title} 
-                    />
-                </div>
+            <Grid container spacing={0}>
+                <Grid lg={6} sm={6} xs={12}>
+                    <div className="right-editpost">
+                        <div className="alert alert-danger" style={{ display: error ? "" : "none" }}>
+                            {error}
+                        </div>
+                        <div className="edit-info">
+                            <h2 className="mt-5 mb-5">Chỉnh sửa bài - {title}</h2>
+                            <img 
+                                style={{ display: loading ? "none" : "" , height: "200px", width: "auto" ,display:"block",marginLeft:"auto", marginRight:"auto"}} 
+                                className="img-thumbnail" 
+                                src={photoUrl} 
+                                alt={title} 
+                            />
+                        </div>
+                    </div>
+                    
+                </Grid> 
+                <Grid lg={6} sm={6} xs={12}>
+                    <div className="left-editpost" >
+                        {loading ? (
+                            <Loading />
+                        ) : (
+                            this.editPostForm(title, body)
+                        )}
+                    </div>
+                    
+                </Grid>
+
                 
-                {loading ? (
-                    <Loading />
-                ) : (
-                    this.editPostForm(title, body)
-                )}
-            </div>
+                
+                
+            </Grid>
         )
     }
 }
