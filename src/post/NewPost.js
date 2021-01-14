@@ -15,7 +15,7 @@ class NewPost extends Component {
     constructor() {
         super();
         this.state = {
-            title: "",
+           
             body: "",
             photo: "",
             error: "",
@@ -32,7 +32,7 @@ class NewPost extends Component {
     }
 
     isValid = () => {
-        const { title, body, fileSize, photo } = this.state;
+        const {  body, fileSize, photo } = this.state;
         if (fileSize > 1000000) {
             this.setState({ error: "Kích thước tệp phải nhỏ hơn 1 MB", loading: false });
             return false;
@@ -41,10 +41,10 @@ class NewPost extends Component {
             this.setState({ error: "Thiếu Ảnh", loading: false });
             return false;
         }
-        if (title.length === 0) {
-            this.setState({ error: "Thiếu tiêu đề", loading: false });
-            return false;
-        }
+        // if (title.length === 0) {
+        //     this.setState({ error: "Thiếu tiêu đề", loading: false });
+        //     return false;
+        // }
         if (body.length === 0) {
             this.setState({ error: "Thiếu nội dung", loading: false });
             return false;
@@ -76,7 +76,7 @@ class NewPost extends Component {
                         this.setState({ error: data.error, loading: false });
                     } else {
                         this.setState({ 
-                            title: "",
+                          //  title: "",
                             body: "",
                             photo: "",
                             loading: false,
@@ -88,7 +88,7 @@ class NewPost extends Component {
         }
     };
 
-    newPostForm = (title, body) => (
+    newPostForm = ( body) => (
         <form>
             <div className="form-group">
                 <Input
@@ -119,7 +119,7 @@ class NewPost extends Component {
 
     render() {
 
-        const { title, body, user, loading, error, redirectToProfile } = this.state;
+        const {  body, user, loading, error, redirectToProfile } = this.state;
         if (redirectToProfile) {
             return <Redirect to={`/user/${user._id}`}></Redirect>
         }
@@ -133,7 +133,7 @@ class NewPost extends Component {
                 {loading ? (
                     <Loading />
                 ) : (
-                    this.newPostForm(title, body)
+                    this.newPostForm( body)
                 )}
             </div>
         );

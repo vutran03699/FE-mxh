@@ -15,6 +15,7 @@
     "emoji-picker-react": "^3.1.6",
     "material-ui-popup-state": "^1.7.1",
     "mdbreact": "^5.0.1",
+    "netlify-cli": "^2.71.0",
     "react": "^16.13.1",
     "react-bootstrap": "^1.4.0",
     "react-bootstrap-tabs": "^1.0.2",
