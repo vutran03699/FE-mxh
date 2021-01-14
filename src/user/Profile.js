@@ -178,9 +178,9 @@ class Profile extends Component {
                     <div className="profile-info-right" style={{marginLeft:"20px",marginRight:"20px"}}>
                         <Tabs onSelect={(index, label) => console.log(label + ' selected')}>
                             <Tab label={postsBadge} className="tab-title-name" >
-                                <div className="row post" style={{marginLeft:"10px"}}>
+                                <div className="row post" style={{marginLeft:"72px"}}>
                                 {posts.map((post, i) => (
-                                    <div key={i} style={{ paddingBottom: "15px" }} className="col-md-4">
+                                    <div key={i} style={{ paddingBottom: "15px" }} className="">
                                         <Link to={`/post/${post._id}`} >
                                             <figure className="snip1205 red">
                                                 <img 
