@@ -75,7 +75,7 @@
     /* ====================================================== */
     /* ====================================================== */
     /* ====================================================== */
-    
+    border-right: 1px solid lightgrey;
     height: 100%;
     display: -ms-flexbox;
     display: flex;
@@ -223,6 +223,7 @@
     min-height: 64px;
     line-height: 64px;
     border-radius: 0 3px 0 0;
+    border-bottom: 1px solid lightgray;
 }
 
 .selected-user span {
@@ -238,6 +239,7 @@
     padding: 1rem;
     max-height: 500px;
     overflow-y: auto;
+    border-bottom:1px solid lightgrey ;
 }
 
 .chat-container li.chat-left,
@@ -271,7 +273,7 @@
 
 .chat-container li .chat-name {
     font-size: .75rem;
-    color: #f8f8f8;
+    color: black;
     text-align: center;
 }
 
@@ -280,11 +282,12 @@
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     border-radius: 10px;
-    background: #ffffff;
+    background: blue;
     font-weight: 300;
     line-height: 150%;
     position: relative;
     word-break: break-all;
+    color: white;
 }
 
 .chat-container li .chat-text:before {
@@ -383,7 +386,7 @@ ul {
 }
 .card-chat {
 
-    background: linear-gradient(45deg, black, transparent);
+    background: white;
     border-radius: 25px;
     margin-bottom: 2rem;
     box-shadow: 20px 20px 50px rgba(0,0,0,0.5);

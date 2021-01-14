@@ -134,13 +134,13 @@ class Chat extends Component {
     renderChat = (chat, i) => {
         if (chat.sender._id === isAuthenticated().user._id) {
             return <li key={i} className="chat-right">
-                <div className="chat-hour" style={{color:"white"}}>
+                <div className="chat-hour" >
                     { DisplayTime12Hour(new Date(chat.time)) }
                     {/* <br /> */}
                     {/* {new Date(chat.time).getDate()} / {new Date(chat.time).getMonth()+1} / {new Date(chat.time).getFullYear()} */}
                     <span className="fa fa-check-circle ml-1" style={{color:"black"}}></span>
                 </div>
-                <div className="chat-text">
+                <div className="chat-text" style={{background:"blue"}}>
                     {chat.message}
                 </div>
             </li>
@@ -150,10 +150,10 @@ class Chat extends Component {
 
                     <div className="chat-name">{chat.sender.name}</div>
                 </div>
-                <div className="chat-text">
+                <div className="chat-text" style={{background:"#cacacc",color:"black"}}>
                     {chat.message}
                 </div>
-                <div className="chat-hour" style={{color:"white"}}>
+                <div className="chat-hour" >
                     { DisplayTime12Hour(new Date(chat.time)) }
                     {/* <br /> */}
                     {/* {new Date(chat.time).getDate()} / {new Date(chat.time).getMonth()+1} / {new Date(chat.time).getFullYear()} */}
@@ -209,7 +209,7 @@ class Chat extends Component {
                                                                 />
                                                             </div>
                                                             <p className="name-time">
-                                                                <span className="name" style={{color:"white"}}>{ user.name }</span>
+                                                                <span className="name" >{ user.name }</span>
                                                             </p>
                                                         </li>
                                                     </a>
@@ -221,7 +221,7 @@ class Chat extends Component {
                                         <div className="selected-user">
                                             <span>To: <span className="name">{reciever.name}</span></span>
                                         </div>
-                                        <ScrollToBottom className="chat-container">
+                                        <ScrollToBottom className="chat-container" >
                                             <div>
                                                 <ul className="chat-box chatContainerScroll">
                                                     {messages.map((chat, i) => (
