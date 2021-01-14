@@ -17,12 +17,14 @@ import ForgotPassword from "./user/ForgotPassword";
 import ResetPassword from "./user/ResetPassword";
 import Chat from "./user/Chat";
 import ChatDef from "./user/ChatDef";
+import NotFound from "./core/404";
 
 
 const MainRouter = () => (
     <div>
         <Menu />
         <Switch>
+            {/* <Route exact path="*" component={NotFound} /> */}
             <PrivateRoute exact path="/" component={Home} />
             <Route exact path="/forgot-password" component={ForgotPassword} />
             <Route exact path="/reset-password/:resetPasswordToken" component={ResetPassword} />
@@ -37,6 +39,7 @@ const MainRouter = () => (
             <PrivateRoute exact path="/user/edit/:userId" component={EditProfile} />
             <PrivateRoute exact path="/chat/:user1Id/:user2Id" component={Chat} />
             <PrivateRoute exact path="/chats/:userId" component={ChatDef} />
+          
         </Switch>
     </div>
 );
