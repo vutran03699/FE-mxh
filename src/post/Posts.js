@@ -7,6 +7,7 @@ import DefaultProfile from '../images/avatar.jpg'
 import { timeDifference } from './timeDifference';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { Button } from 'react-bootstrap';
+import posts from '../css/posts.css';
 
 class Posts extends Component {
     constructor() {

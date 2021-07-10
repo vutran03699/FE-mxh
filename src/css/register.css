@@ -1,6 +1,9 @@
+.wrapper{
+    margin-top: 120px;
+}
 .title-register{
     text-align: center;
-   font-family: 'Courgette';
+
 }
 .right-register{
     margin-right: 40px;
@@ -26,3 +29,12 @@
         width:  30%;
     }
   }
+  @media screen and (max-width: 480px ){
+    .title-welcome{
+        display: none;
+    }
+    .sign-up-des{
+        display: none;
+    }
+    
+}

@@ -78,9 +78,13 @@ body {
   width: 50%;;
   }
   .row .post{
-    margin-left: -15px !important;
+    justify-content: center;
   }
-  
+  @media (min-width: 768px) and (max-width: 991px) {
+    .tab-content .row .post{
+      justify-content: center !important;
+    }
+  }
   
 }
 

@@ -8,6 +8,8 @@ import { isAuthenticated } from '../auth/index';
 import Loading from '../loading/Loading';
 import { Button } from '@material-ui/core';
 
+import findpeople from '../css/findpeople.css'
+
 class FindPeople extends Component {
     constructor() {
         super();
@@ -57,9 +59,9 @@ class FindPeople extends Component {
     };
 
     renderUsers = (users) => (
-        <div className="row">
+        <div className="row" style={{justifyContent:"center"}}>
             {users.map((user, i) => (
-                <div key={i} className="card col-md-3" style={{ padding: "0", margin: "15px"}} >
+                <div key={i} className="card col-lg-3 col-md-4 col-12" style={{ padding: "0", margin: "15px"}} >
                     <img 
                         style={{  }}
                         height= "250"
@@ -72,11 +74,11 @@ class FindPeople extends Component {
                     <div className="card-body">
                         <h5 className="card-title" style={{textAlign:"center"}}>{user.name}</h5>
                     </div>
-                    <div className="card-body">
+                    <div className="card-body fpb_group">
                         <Link
                         style={{textDecoration:"none"}}
                             to={`/user/${user._id}`}
-                            className="">
+                            className="fpb_link-view">
                                 <Button variant="outlined">
                                 View Profile
                                 </Button>

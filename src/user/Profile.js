@@ -140,17 +140,17 @@ class Profile extends Component {
                                 <>
                                 <div className="row" style={{justifyContent:"space-evenly",marginBottom:"20px"}} >
                                     <Link className="" to={`/post/create`} style={{textDecoration:"none"}} >
-                                        <Button  variant="outlined">
+                                        <Button  variant="outlined" style={{margin:"10px"}}>
                                             Create Post
                                         </Button>
                                     </Link>
                                     <Link className="" to={`/user/edit/${user._id}`} style={{textDecoration:"none"}} >
-                                        <Button variant="outlined" className="" >
+                                        <Button variant="outlined" className="" style={{margin:"10px"}} >
                                             Edit Profile
                                         </Button>
                                     </Link>
-                                    <p className="" variant="outlined" style={{marginTop:"0"}}>
-                                        <DeleteUser userId={user._id} />
+                                    <p className="" variant="outlined" style={{margin:"10px"}}>
+                                        <DeleteUser userId={user._id}  />
                                     </p>
 
                                 </div>
@@ -178,7 +178,7 @@ class Profile extends Component {
                     <div className="profile-info-right" style={{marginLeft:"20px",marginRight:"20px"}}>
                         <Tabs onSelect={(index, label) => console.log(label + ' selected')}>
                             <Tab label={postsBadge} className="tab-title-name" >
-                                <div className="row post" style={{marginLeft:"72px"}}>
+                                <div className="row post" style={{justifyContent:"center"}} > 
                                 {posts.map((post, i) => (
                                     <div key={i} style={{ paddingBottom: "15px" }} className="">
                                         <Link to={`/post/${post._id}`} >

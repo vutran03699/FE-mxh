@@ -1,4 +1,8 @@
-
+.loading-chat .loader span{
+    left: 49%;
+    margin-top: 20px;
+    margin: auto;
+}
 
 .chat-search-box {
     -webkit-border-radius: 3px 0 0 0;
@@ -116,8 +120,7 @@
     background-image: -o-linear-gradient(to right, #e9eff5, #ffffff);
     /* Opera 11.10+ */
     background-image: linear-gradient(to right, #e9eff5, #ffffff);
-    background: linear-gradient(45deg, black, transparent);
-    border-radius: 55px;
+    background-color: #ecec;
     padding: 10px;
 }
 
@@ -238,6 +241,7 @@
     position: relative;
     padding: 1rem;
     max-height: 500px;
+    height: 100%;
     overflow-y: auto;
     border-bottom:1px solid lightgrey ;
 }
@@ -335,6 +339,12 @@
         flex-direction: column;
         margin-bottom: 30px;
     }
+    .chat-container li.chat-right {
+        align-items: flex-end;
+    }
+    .chat-container li.chat-left {
+        align-items: flex-start;
+    }
     .chat-container li img {
         width: 32px;
         height: 32px;
@@ -385,9 +395,7 @@ ul {
     padding: 0;
 }
 .card-chat {
-
+    height: 88vh;
     background: white;
-    border-radius: 25px;
-    margin-bottom: 2rem;
     box-shadow: 20px 20px 50px rgba(0,0,0,0.5);
 }

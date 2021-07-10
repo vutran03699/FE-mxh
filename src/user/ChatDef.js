@@ -52,7 +52,7 @@ class Chat extends Component {
         const { chatList, sender, loading } = this.state;
         return (
             
-            <div className="container mb-5">
+            <div className="container-fluid">
                 <div className="page-title">
                     <div className="row gutters">
                         <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
@@ -60,18 +60,21 @@ class Chat extends Component {
                         </div>
                     </div>
                 </div>
-                { loading ? 
-                    (<Loading />) 
-                    : 
-                    ("")
-                }
+                <div className="loading-chat">
+                    { loading ? 
+                        (<Loading />) 
+                        : 
+                        ("")
+                    }
+
+                </div>
                 <div className="content-wrapper" style={{ display: loading ? "none" : "" }}>
                     <div className="row gutters">
                         <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <div className="card card-chat m-0">
                                 <div className="row no-gutters">
                                     <div className="col-xl-4 col-lg-4 col-md-4 col-sm-3 col-3">
-                                        <div className="users-container" style={{ minHeight: "500px" }}>
+                                        <div className="users-container" style={{ minHeight: "670px" }}>
                                             {/* <div className="chat-search-box">
                                                 <div className="input-group">
                                                     <input className="form-control" placeholder="Search" />

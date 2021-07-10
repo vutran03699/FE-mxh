@@ -21,7 +21,7 @@ const Menu = (props) => (
             background: "black", 
             paddingTop: "15px",
             paddingBottom: "0",
-            marginBottom: "50px"
+            marginBottom: "15px"
 
         }}
     >

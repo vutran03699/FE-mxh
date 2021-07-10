@@ -1,7 +1,33 @@
+.loader span{
+    left: 79%;
+    margin-top: 20px;
+    margin: auto;
+}
+    
+.wrapper{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin-top: 120px;
+}
+.img-logo{
+    display: block;
+    margin: auto;
+    max-width: 200px;
+    margin-bottom: 10px;
+}
+.title-welcome{
+    text-align: center;
+    font-size: 3vw;
+}
 
+.title-des{
+    text-align: center;
+    font-size: 3vw;
+}
 
 .right-login{
-
+    text-align: center;
     margin-right: 40px;
     padding: 35px;
     border-radius: 16px;
@@ -21,9 +47,38 @@
 }
 @media only screen and (max-width: 768px) {
     .right-login{
-        max-width: 350px;
+        max-width: 450px;
     }
     .img-logo{
-        width: 30%;
+        width: 10%;
+        margin-bottom: 20px;
     }
-  }
+    .title-welcome{
+        display: none;
+    }
+    .title-des{
+        display: none;
+    }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+    .wrapper{
+        margin-top: 0px;
+    }
+}
+@media (max-width: 767px) {
+    .wrapper{
+        margin-top: 0px;
+    }
+}
+@media screen and (max-width: 480px ){
+    .wrapper{
+        margin-top: 0px;
+    }
+    .right-login h2{
+        font-size: 5vw;
+    }
+    .right-login{
+        max-width: 350px;
+    }
+}
+ 

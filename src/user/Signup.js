@@ -154,20 +154,20 @@ class Signup extends Component {
     render(){
         const { name, email, password, error, open, loading, recaptcha } = this.state;
         return (
-            <Grid container spacing={2} style={{overflowX:"hidden"}}>
+            <Grid className="wrapper" container spacing={0} style={{overflowX:"hidden"}}>
                  <Grid item lg={7} sm={6} xs={12}>
                     <div className="left-register">
                             <Fade top>
-                                <img className="img-logo" style={{display:"block",marginBottom:"10px",marginLeft:"auto",marginRight:"auto",maxWidth:"200px"}} src={require('../images/logo.png')} alt="logo"/>  
+                                <img className="img-logo" style={{}} src={require('../images/logo.png')} alt="logo"/>  
                             </Fade>
                             
                             <Fade left>
-                                <Typography className="titel-welcome" variant="h4" color="inherit" style={{textAlign:"center",fontFamily: "Courgette",fontSize:"3vw"}} >
+                                <Typography className="title-welcome" variant="h4" color="inherit" style={{textAlign:"center",fontSize:"3vw"}} >
                                     Welcome to the Social App !
                                 </Typography>
                             </Fade>
                             <Fade up>
-                                <Typography style={{textAlign:"center",fontFamily: "Courgette",fontSize:"3vw"}} variant="subtitle1" color="inherit" className="max-w-512 mt-16">
+                                <Typography  style={{textAlign:"center",fontSize:"3vw"}} variant="subtitle1" color="inherit" className="max-w-512 mt-16 sign-up-des">
                                     Ứng dụng vô địch siêu cấp vũ trụ 
                                 </Typography>
                             </Fade>
@@ -194,7 +194,7 @@ class Signup extends Component {
                                 ""
                             )}
                             <hr />
-                            <div style={{textAlign:"center",fontFamily:"Courgette"}}>Or</div>
+                            <div style={{textAlign:"center"}}>Or</div>
                             <div style={{textAlign:"center"}}>
                                 <SocialLogin for="signup" />
                             </div>

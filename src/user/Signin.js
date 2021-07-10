@@ -127,7 +127,9 @@ class Signin extends Component {
                 />
             </div>
            
-            <Button onClick={this.clickSubmit} 
+            <Button 
+                    type="submit"
+                    onClick={this.clickSubmit} 
                     style={{display:"block",margin: "0 auto"}}
                     variant="outline-dark"
                     block
@@ -145,32 +147,33 @@ class Signin extends Component {
             return <Redirect to="/" />
         }
         return (
-            <Grid container spacing={2} style={{overflowX:"hidden"}}  >
-                <Grid item lg={7} sm={6} xs={12} >
+            <Grid className="wrapper" container spacing={0}   >
+                <Grid item lg={7} sm={12} xs={12} >
                     <div className="left-login">
                         <Fade top >
-                            <img className="img-logo" style={{display:"block",marginLeft:"auto",marginRight:"auto",maxWidth:"200px",marginBottom:"10px"}} src={require('../images/logo.png')} alt="logo"/>  
+                            <img className="img-logo" src={require('../images/logo.png')} alt="logo"/>  
                         </Fade>
                         
                         <Fade left>
-                            <Typography  variant="h4" color="inherit" style={{textAlign:"center",fontFamily: "Courgette",fontSize:"3vw"}} >
+                            <Typography  variant="h4" color="inherit" >
                                <div className="title-welcome">
                                Welcome to the Social App !
                                </div>
-                                
                             </Typography>
                         </Fade>
                         <Fade up>
-                            <Typography className="title-des" style={{textAlign:"center",fontFamily: "Time new roman",fontSize:"3vw"}} variant="subtitle1" color="inherit" className="max-w-512 mt-16">
-                                Ứng dụng vô địch siêu cấp vũ trụ 
+                            <Typography variant="subtitle1" color="inherit" className="max-w-512 mt-16 ">
+                                <div className="title-des">
+                                    Đồ Án Tổng Hợp K17  
+                                </div>
                             </Typography>
                         </Fade>
                     </div>
                 </Grid>
-                <Grid item lg={5} sm={6}  xs={12}   >
+                <Grid item lg={5} sm={12}  xs={12}   >
                     <Fade right>
                     <div className="right-login">
-                        <h2 style={{fontFamily: "Courgette",textAlign:"center"}}>Sign In</h2>
+                        <h2>Sign In</h2>
                         
                         <hr />
                         

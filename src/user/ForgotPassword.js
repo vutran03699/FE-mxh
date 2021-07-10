@@ -29,58 +29,61 @@ class ForgotPassword extends Component {
         const { message, error } = this.state;
         return (
             <Fade left>
-            <div className="main-forgot">
-                <Fade top>
-                    
-                        <img className="img-logo"  src={require('../images/logo.png')} alt="logo"/>
-                    
-                    <h2 className="title-forgot" style={{fontSize: "3vw",marginTop:"10px"}}>RECOVER YOUR PASSWORD</h2>
-                </Fade>
-                
-                
-                <Fade top>
-                    <div className="alert alert-danger" style={{ display: error ? "" : "none" }}>
-                        {error}
-                    </div>
-                    <div className="alert alert-danger" style={{ display: message ? "" : "none" }}>
-                        {message}
-                    </div>
-                </Fade>
-                
-                
-                <form>
-                    
-                    <div className="form-group mt-5">
-                        <TextField
-                            label="Email"
-                            variant="outlined"
-                            type="email"
-                            className="form-control"
-                            value={this.state.email}
-                            name="email"
-                            onChange={e =>
-                                this.setState({
-                                    email: e.target.value,
-                                    message: "",
-                                    error: ""
-                                })
-                            }
-                            autoFocus
-                        />
-                    </div>
-                    <Button
-                         style={{display:"block",margin: "0 auto"}}
-                        variant="outline-dark"
-                        onClick={this.forgotPasswordFunction}
+                <div className="wrapper-forgot">
+                    <div className="main-forgot">
+                        <Fade top>
+                            
+                                <img className="img-logo"  src={require('../images/logo.png')} alt="logo"/>
+                            
+                            <h2 className="title-forgot" style={{fontSize: "3vw",marginTop:"10px"}}>RECOVER YOUR PASSWORD</h2>
+                        </Fade>
                         
-                    >
-                        Send Reset Password
-                    </Button>
-                    
-                </form>
+                        
+                        <Fade top>
+                            <div className="alert alert-danger" style={{ display: error ? "" : "none" }}>
+                                {error}
+                            </div>
+                            <div className="alert alert-danger" style={{ display: message ? "" : "none" }}>
+                                {message}
+                            </div>
+                        </Fade>
+                        
+                        
+                        <form>
+                            
+                            <div className="form-group mt-5">
+                                <TextField
+                                    label="Email"
+                                    variant="outlined"
+                                    type="email"
+                                    className="form-control"
+                                    value={this.state.email}
+                                    name="email"
+                                    onChange={e =>
+                                        this.setState({
+                                            email: e.target.value,
+                                            message: "",
+                                            error: ""
+                                        })
+                                    }
+                                    autoFocus
+                                />
+                            </div>
+                            <Button
+                                style={{display:"block",margin: "0 auto"}}
+                                variant="outline-dark"
+                                onClick={this.forgotPasswordFunction}
+                                
+                            >
+                                Send Reset Password
+                            </Button>
+                            
+                        </form>
+                        
+                        
+                    </div>
+                </div>
                 
-                
-            </div>
             </Fade>
         );
     }
