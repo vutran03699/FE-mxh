@@ -157,7 +157,7 @@ class Signin extends Component {
                         <Fade left>
                             <Typography  variant="h4" color="inherit" >
                                <div className="title-welcome">
-                               Welcome to the Social App !
+                                    Welcome to the Social App !
                                </div>
                             </Typography>
                         </Fade>
@@ -173,7 +173,7 @@ class Signin extends Component {
                 <Grid item lg={5} sm={12}  xs={12}   >
                     <Fade right>
                     <div className="right-login">
-                        <h2>Sign In</h2>
+                        <h1>Sign In</h1>
                         
                         <hr />
                         
