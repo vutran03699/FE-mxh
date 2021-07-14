@@ -399,3 +399,50 @@ ul {
     background: white;
     box-shadow: 20px 20px 50px rgba(0,0,0,0.5);
 }
+.icon-chat{
+    position: absolute;
+    z-index: 10;
+    top: 260px;
+    right: 0px;
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+    .icon-chat{
+        position: absolute;
+        z-index: 10;
+        top: 170px;
+        right: 0px;
+    }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+    .icon-chat{
+        position: absolute;
+        z-index: 10;
+        top: 170px;
+        right: 0px;
+    }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+    .icon-chat{
+        position: absolute;
+        z-index: 10;
+        top: 170px;
+        right: 0px;
+    }
+}
+@media (max-width: 767px) {
+    .icon-chat{
+        position: absolute;
+        z-index: 10;
+        top: 170px;
+        right: 0px;
+    }
+}
+@media screen and (max-width: 480px) {
+    .icon-chat{
+        position: absolute;
+        z-index: 10;
+        top: 170px;
+        right: 0px;
+    }
+
+}

@@ -9,6 +9,8 @@ import DefaultProfile from '../images/avatar.jpg';
 import Loading from '../loading/Loading';
 import { Link } from 'react-router-dom';
 
+import chatdef from '../css/chatdef.css'
+
 class Chat extends Component {
     constructor() {
         super();
@@ -74,7 +76,7 @@ class Chat extends Component {
                             <div className="card card-chat m-0">
                                 <div className="row no-gutters">
                                     <div className="col-xl-4 col-lg-4 col-md-4 col-sm-3 col-3">
-                                        <div className="users-container" style={{ minHeight: "670px" }}>
+                                        <div className="users-container">
                                             {/* <div className="chat-search-box">
                                                 <div className="input-group">
                                                     <input className="form-control" placeholder="Search" />

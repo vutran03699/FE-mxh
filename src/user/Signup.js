@@ -158,7 +158,7 @@ class Signup extends Component {
                  <Grid item lg={7} sm={6} xs={12}>
                     <div className="left-register">
                             <Fade top>
-                                <img className="img-logo" style={{}} src={require('../images/logo.png')} alt="logo"/>  
+                                <img className="img-logo" src={require('../images/logo.png')} alt="logo"/>  
                             </Fade>
                             
                             <Fade left>
@@ -187,6 +187,7 @@ class Signup extends Component {
                             <Alert className="alert alert-info" style={{ display: open ? "" : "none" }} severity="info">
                                 New account is successfully created. Please <Link to='/signin'>Sign In</Link>.
                             </Alert>
+                            
                             {this.signupForm(name, email, password, loading, recaptcha)}
                             { loading ? (
                                 <Loading />

@@ -126,8 +126,7 @@ class SinglePost extends Component {
             return <Redirect to='/signin'></Redirect>
         }
         return(
-            <div className="card col-md-12 mb-5" style={{boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
-            width:"60%",margin:"auto",padding:"10px" }} >
+            <div className="card col-md-12 mb-5 main-content"  >
                 <div className="card-header">  
                     <img 
                         className="mb-1 mr-2"

@@ -14,6 +14,13 @@
     background: white;
     padding: 10px;
 }
+@media (min-width: 992px) and (max-width: 1199px) {
+    .right-register .loader span{
+        left: 73%;
+        margin-top: 20px;
+        margin: auto;
+    }
+}
 @media only screen and (max-width: 768px) {
     .right-register{
         max-width: 350px;
@@ -28,6 +35,18 @@
     .img-logo{
         width:  30%;
     }
+    .right-register .loader span{
+        left: 73%;
+        margin-top: 20px;
+        margin: auto;
+    }
+  }
+  @media (max-width: 767px) {
+    .right-register .loader span{
+        left: 46%;
+        margin-top: 20px;
+        margin: auto;
+    }
   }
   @media screen and (max-width: 480px ){
     .title-welcome{
@@ -35,6 +54,12 @@
     }
     .sign-up-des{
         display: none;
+    }
+
+    .right-register .loader span{
+        left: 46%;
+        margin-top: 20px;
+        margin: auto;
     }
     
 }

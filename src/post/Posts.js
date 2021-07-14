@@ -61,12 +61,10 @@ class Posts extends Component {
                         const posterId = post.postedBy ? post.postedBy._id : "";
                         const posterName = post.postedBy ? post.postedBy.name : " Unknown";
                         return (
-                            <div id="main-post" key={i} className="card col-md-12 mb-5" style={{boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
-                            width:"60%",margin:"auto",padding:"10px",padding: "0" }} >
+                            <div id="main-post"  key={i} className="main-content  card col-md-12 col-12 mb-5" >
                                 <div className="card-header" style={{borderBottom:"none"}}>
                                     <img
-                                        className="mb-1 mr-2"
-                                        style={{ height: "40px", width: "40px", borderRadius: "50%" }}
+                                        className="img-cover mb-1 mr-2"
                                         src={`${process.env.REACT_APP_API_URL}/user/photo/${posterId}`}
                                         onError={i => (i.target.src = DefaultProfile)}
                                         alt={posterName}

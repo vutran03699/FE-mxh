@@ -188,7 +188,7 @@ class Chat extends Component {
                             <div className="card card-chat m-0">
                                 <div className="row no-gutters">
                                     <div className="col-xl-4 col-lg-4 col-md-4 col-sm-3 col-3">
-                                        <div className="users-container" style={{ minHeight: "669px" }}>
+                                        <div className="users-container" >
                                             {/* <div className="chat-search-box">
                                                 <div className="input-group">
                                                     <input className="form-control" placeholder="Search" />
@@ -238,7 +238,7 @@ class Chat extends Component {
                                         <div className="form-group mt-3 mb-3 mr-3 ml-3">
                                             <form onSubmit={this.sendMessage}>
                                                 <div className="form-group mt-4">
-                                                    <div style={{position:"absolute",zIndex:"10",top:"262px",right:"0"}}>
+                                                    <div className="icon-chat">
                                                             {showPicker ? <Picker onEmojiClick={this.onEmojiClick} /> : ""}
                                                     </div>
                                                     <div className="input-group">

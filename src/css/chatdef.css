@@ -1,0 +1,23 @@
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .chat-container{
+        max-height: 430px;
+    }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+    .chat-container{
+        max-height: 435px;
+    }
+}
+@media (max-width: 767px) {
+    .chat-container{
+        max-height: 435px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .chat-container{
+        max-height: 430px;
+    }
+
+}
