@@ -128,9 +128,9 @@ class Signin extends Component {
             </div>
            
             <Button 
+                    className="btn-signin"
                     type="submit"
                     onClick={this.clickSubmit} 
-                    style={{display:"block",margin: "0 auto"}}
                     variant="outline-dark"
                     block
                     >
@@ -195,14 +195,14 @@ class Signin extends Component {
                         <p className="forgot-password">
                             <Link to="/forgot-password">
                                 {" "}
-                                <span style={{color:"black"}}>
+                                <span>
                                 Forgot Password
                                 </span>
                             
                             </Link>
                         </p>
                         <hr/>
-                        <div style={{textAlign:"center",fontFamily:"Courgette"}}>Or</div>
+                        <div>Or</div>
                         <p className="gg-login"><SocialLogin /></p>
                         
                         

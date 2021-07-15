@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 
 import DefaultProfile from '../images/avatar.jpg';
 
+import profiletab from '../css/profiletab.css'
+
 class ProfileTabs extends Component{
     render(){
         const {following, followers, posts} = this.props;
@@ -19,7 +21,7 @@ class ProfileTabs extends Component{
                                     <Link to={`/user/${person._id}`} >
                                         <img 
                                             style={{borderRadius: "50%", border: "1px solid black"}}
-                                            className="float-left mr-2"
+                                            className=" float-left mr-2"
                                             height="30px"
                                             width="30px"
                                             src={`${process.env.REACT_APP_API_URL}/user/photo/${person._id}`}

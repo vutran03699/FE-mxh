@@ -112,16 +112,15 @@ class Profile extends Component {
     renderProfile = () => {
         const { user, following, posts } = this.state;
         const photoUrl = user._id ? `${process.env.REACT_APP_API_URL}/user/photo/${user._id}?${new Date().getTime()}` : DefaultProfile;
-        let followingBadge = <p style={{ marginBottom: "0" }}><span className="badge badge-pill badge-primary">{user.following.length}</span> Following</p>
-        let followersBadge = <p style={{ marginBottom: "0" }}><span className="badge badge-pill badge-success">{user.followers.length}</span> Followers</p>
-        let postsBadge = <p style={{ marginBottom: "0" }}><span className="badge badge-pill badge-warning">{posts.length}</span> Posts</p>
-        return <div className="user-profile" style={{boxShadow:  "20px 20px 50px rgba(0,0,0,0.5)",backgroundColor:"rgba(255,255,255,0.1)",backdropFilter:"blur(5px)", borderRadius:"25px"}}>
-            <div className="row" style={{flexDirection:"column"}}>
+        let followingBadge = <p><span className="badge badge-pill badge-primary">{user.following.length}</span> Following</p>
+        let followersBadge = <p><span className="badge badge-pill badge-success">{user.followers.length}</span> Followers</p>
+        let postsBadge = <p><span className="badge badge-pill badge-warning">{posts.length}</span> Posts</p>
+        return <div className="user-profile">
+            <div className="row profile-left-column">
                 <div className="">
                     <div className="profile-info-left">
                         <div className="text-center">
                             <img 
-                            style={{borderRadius:"65%",boxShadow:  "20px 20px 50px rgba(0,0,0,0.5)"}}
                                 height="300"
                                 width="300"
                                 src={photoUrl} 
@@ -129,27 +128,27 @@ class Profile extends Component {
                                 onError={i => (i.target.src = DefaultProfile)} 
                                 className="avatar img-circle" 
                             />
-                            <h2 className="mt-2" style={{margin:"14px"}}>{user.name}</h2>
+                            <h2 className="profile-name mt-2">{user.name}</h2>
                         </div>
-                        <div className="section" style={{borderTop:"1px solid lightgray",margin:"14px"}}>
-                            <h3 style={{marginTop:"30px"}}>About Me</h3>
+                        <div className="section">
+                            <h3 className="profile-about">About Me</h3>
                             <p>{user.about}</p>
                         </div>
-                        <div className="action-buttons" style={{borderBottom:"1px solid lightgray",margin:"14px"}} >
+                        <div className="action-buttons">
                             {isAuthenticated().user && isAuthenticated().user._id === user._id ? (
                                 <>
-                                <div className="row" style={{justifyContent:"space-evenly",marginBottom:"20px"}} >
-                                    <Link className="" to={`/post/create`} style={{textDecoration:"none"}} >
-                                        <Button  variant="outlined" style={{margin:"10px"}}>
+                                <div className="row profile-option">
+                                    <Link className="profile-create-post" to={`/post/create`}>
+                                        <Button className="btn-create-post" variant="outlined">
                                             Create Post
                                         </Button>
                                     </Link>
-                                    <Link className="" to={`/user/edit/${user._id}`} style={{textDecoration:"none"}} >
-                                        <Button variant="outlined" className="" style={{margin:"10px"}} >
+                                    <Link className="profile-edit-post" to={`/user/edit/${user._id}`}>
+                                        <Button variant="outlined">
                                             Edit Profile
                                         </Button>
                                     </Link>
-                                    <p className="" variant="outlined" style={{margin:"10px"}}>
+                                    <p className="profile-dele-user" variant="outlined" >
                                         <DeleteUser userId={user._id}  />
                                     </p>
 
@@ -157,8 +156,8 @@ class Profile extends Component {
                                 
                                 </>
                             ): (
-                                <div className="row" style={{justifyContent:"space-evenly"}}>
-                                    <Link className=""to={`/chat/${isAuthenticated().user._id}/${user._id}`} style={{textDecoration:"none"}}>
+                                <div className="row profile-follow">
+                                    <Link className=""to={`/chat/${isAuthenticated().user._id}/${user._id}`}>
                                         <Button variant="outlined" >
                                             Message
                                         </Button>
@@ -175,16 +174,15 @@ class Profile extends Component {
                     </div>
                 </div>
                 <div className="">
-                    <div className="profile-info-right" style={{marginLeft:"20px",marginRight:"20px"}}>
+                    <div className="profile-info-right">
                         <Tabs onSelect={(index, label) => console.log(label + ' selected')}>
                             <Tab label={postsBadge} className="tab-title-name" >
-                                <div className="row post" style={{justifyContent:"center"}} > 
+                                <div className="row post"> 
                                 {posts.map((post, i) => (
-                                    <div key={i} style={{ paddingBottom: "15px" }} className="">
+                                    <div key={i} className="profile-post-wrapper">
                                         <Link to={`/post/${post._id}`} >
                                             <figure className="snip1205 red">
                                                 <img 
-                                                    style={{ objectFit: "cover", padding: "0" }}
                                                     height="300"
                                                     width="300"
                                                     src={`${process.env.REACT_APP_API_URL}/post/photo/${post._id}`}
@@ -192,7 +190,7 @@ class Profile extends Component {
                                                 />
                                                 <i className="fas fa-heart">
                                                     <br />
-                                                    <span style={{ color: "white", fontSize: "20px" }} >{post.likes.length}</span>
+                                                    <span>{post.likes.length}</span>
                                                 </i>
                                             </figure>
                                         </Link>

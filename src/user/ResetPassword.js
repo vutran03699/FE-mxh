@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import { resetPassword } from "../auth";
 import { Button } from 'react-bootstrap';
-import { Typography , TextField} from '@material-ui/core';
+import { TextField } from '@material-ui/core';
+
+import resetpassword from '../css/resetpassword.css'
 class ResetPassword extends Component {
     constructor(props) {
         super(props);
@@ -33,7 +35,7 @@ class ResetPassword extends Component {
     render() {
         const { message, error } = this.state;
         return (
-            <div className="container" style={{padding:"35px",borderRadius:"25px" ,width:"700px", background:"white",boxShadow:"20px 20px 50px rgba(0,0,0,0.5)"}}>
+            <div className="container btn-gg-social">
                 <h2 className="mt-5 mb-5">Reset your Password</h2>
 
                 <div className="alert alert-danger" style={{ display: error ? "" : "none" }}>

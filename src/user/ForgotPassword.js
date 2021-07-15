@@ -35,7 +35,7 @@ class ForgotPassword extends Component {
                             
                                 <img className="img-logo"  src={require('../images/logo.png')} alt="logo"/>
                             
-                            <h2 className="title-forgot" style={{fontSize: "3vw",marginTop:"10px"}}>RECOVER YOUR PASSWORD</h2>
+                            <h2 className="title-forgot">RECOVER YOUR PASSWORD</h2>
                         </Fade>
                         
                         
@@ -47,10 +47,7 @@ class ForgotPassword extends Component {
                                 {message}
                             </div>
                         </Fade>
-                        
-                        
                         <form>
-                            
                             <div className="form-group mt-5">
                                 <TextField
                                     label="Email"
@@ -70,7 +67,7 @@ class ForgotPassword extends Component {
                                 />
                             </div>
                             <Button
-                                style={{display:"block",margin: "0 auto"}}
+                                className="btn-resetpw"
                                 variant="outline-dark"
                                 onClick={this.forgotPasswordFunction}
                                 

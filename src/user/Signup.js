@@ -140,8 +140,8 @@ class Signup extends Component {
                 />
             </div>
            
-            <Button onClick={this.clickSubmit}  
-                    style={{display:"block",margin: "0 auto"}}
+            <Button onClick={this.clickSubmit} 
+                    className="btn-signup" 
                     variant="outline-dark"
                     block
                     >
@@ -154,7 +154,7 @@ class Signup extends Component {
     render(){
         const { name, email, password, error, open, loading, recaptcha } = this.state;
         return (
-            <Grid className="wrapper" container spacing={0} style={{overflowX:"hidden"}}>
+            <Grid className="wrapper" container spacing={0} >
                  <Grid item lg={7} sm={6} xs={12}>
                     <div className="left-register">
                             <Fade top>
@@ -162,12 +162,12 @@ class Signup extends Component {
                             </Fade>
                             
                             <Fade left>
-                                <Typography className="title-welcome" variant="h4" color="inherit" style={{textAlign:"center",fontSize:"3vw"}} >
+                                <Typography className="title-welcome" variant="h4" color="inherit">
                                     Welcome to the Social App !
                                 </Typography>
                             </Fade>
                             <Fade up>
-                                <Typography  style={{textAlign:"center",fontSize:"3vw"}} variant="subtitle1" color="inherit" className="max-w-512 mt-16 sign-up-des">
+                                <Typography variant="subtitle1" color="inherit" className="max-w-512 mt-16 sign-up-des">
                                     Ứng dụng vô địch siêu cấp vũ trụ 
                                 </Typography>
                             </Fade>
@@ -195,8 +195,8 @@ class Signup extends Component {
                                 ""
                             )}
                             <hr />
-                            <div style={{textAlign:"center"}}>Or</div>
-                            <div style={{textAlign:"center"}}>
+                            <div className="sign-up-or">Or</div>
+                            <div className="google-login">
                                 <SocialLogin for="signup" />
                             </div>
                             

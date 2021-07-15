@@ -1,53 +1,53 @@
-.main-content{
+.main-content {
     width: 60%;
     margin: auto;
     padding: 10px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-.edit-post:hover{
+.edit-post:hover {
     text-decoration: none;
-    color: black;
+    color: #000;
 }
-.edit-post{
-    color: black;
+.edit-post {
+    color: #000;
 }
-.back-to-post{
-    color: black;
+.back-to-post {
+    color: #000;
 }
-.back-to-post:hover{
+.back-to-post:hover {
     text-decoration: none;
-    color: black;
+    color: #000;
 }
-.options-post{
+.options-post {
     display: flex;
     flex-direction: row;
     padding: 10px;
     justify-content: space-evenly;
-    border-bottom: 1px solid lightgray;
+    border-bottom: 1px solid #d3d3d3;
 }
-.option-item{
+.option-item {
     font-size: 25px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 @media only screen and (max-width: 768px) {
-    #main-post{
+    #main-post {
         width: 100%;
     }
 }
 @media (max-width: 767px) {
-    .main-content{
+    .main-content {
         width: 100%;
     }
 }
 @media only screen and (max-width: 601px) {
-    #main-post{
+    #main-post {
         width: 100%;
     }
 }
 @media screen and (max-width: 480px) {
-    .main-content{
+    .main-content {
         width: 100%;
     }
 }

@@ -62,28 +62,27 @@ class Posts extends Component {
                         const posterName = post.postedBy ? post.postedBy.name : " Unknown";
                         return (
                             <div id="main-post"  key={i} className="main-content  card col-md-12 col-12 mb-5" >
-                                <div className="card-header" style={{borderBottom:"none"}}>
-                                    <img
-                                        className="img-cover mb-1 mr-2"
-                                        src={`${process.env.REACT_APP_API_URL}/user/photo/${posterId}`}
-                                        onError={i => (i.target.src = DefaultProfile)}
-                                        alt={posterName}
-                                    />
-                                    <Link to={`/user/${posterId}`} style={{ fontSize: "20px",color:"black" }}>
-                                        {posterName}
-                                        
-                                    </Link>
-                                    <p
-                                        style={{ marginBottom: "0" }}
-                                        className="pull-right mt-2"
-                                    >
+                                <div className="card-header">
+                                    <div className="post-group">
+                                        <img
+                                            className="img-cover mb-1 mr-2"
+                                            src={`${process.env.REACT_APP_API_URL}/user/photo/${posterId}`}
+                                            onError={i => (i.target.src = DefaultProfile)}
+                                            alt={posterName}
+                                        />
+                                            <Link className="post-name-link" to={`/user/${posterId}`}>
+                                                {posterName}
+                                                
+                                            </Link>
+
+                                    </div>
+                                    <p className="pull-right mt-2 mb-0">
                                         <span className="ml-2">
                                             <i className="far fa-clock"></i>{" " + timeDifference(new Date(), new Date(post.created))}
                                         </span>
                                     </p>
                                 </div>
-                                <div style={{padding:"15px"}}>
-                                    <h5 className="card-title">{post.title}</h5>
+                                <div>
                                     <p className="card-text">{post.body}</p>
                                 </div>
                                 
@@ -92,29 +91,18 @@ class Posts extends Component {
                                         className="card-img-top"
                                         src={`${process.env.REACT_APP_API_URL}/post/photo/${post._id}`}
                                         alt={post.title}
-                                        style={{
-                                            maxHeight: "700px",
-                                            backgroundSize: "cover",
-                                            backgroundRepeat: 'no-repeat',
-                                            backgroundPosition: "50% 50%"
-                                        }}
                                     />
                                 </Link>
                                 <div className="card-body">
                                     
                                     <Link
-                                        style={{
-                                           textDecoration:"none",
-                                            borderRadius: "20px",
-                                            padding: "10px"
-                                        }}
                                         to={`/post/${post._id}`}
-                                        className="">
+                                        className="post-link">
                                             <Button variant="outline-dark" block>
                                                 Read More
                                             </Button>
                                         
-                                </Link>
+                                    </Link>
                                 </div>
 
                             </div>
