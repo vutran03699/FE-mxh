@@ -59,11 +59,10 @@ class FindPeople extends Component {
     };
 
     renderUsers = (users) => (
-        <div className="row" style={{justifyContent:"center"}}>
+        <div className="row justify-content-center">
             {users.map((user, i) => (
-                <div key={i} className="card col-lg-3 col-md-4 col-12" style={{ padding: "0", margin: "15px"}} >
+                <div key={i} className="fp-item card col-lg-3 col-md-4 col-12" >
                     <img 
-                        style={{  }}
                         height= "250"
                         width= "250"
                         className="card-img-top"
@@ -72,15 +71,14 @@ class FindPeople extends Component {
                         alt={user.name}
                     />
                     <div className="card-body">
-                        <h5 className="card-title" style={{textAlign:"center"}}>{user.name}</h5>
+                        <h5 className="card-title text-center">{user.name}</h5>
                     </div>
                     <div className="card-body fpb_group">
                         <Link
-                        style={{textDecoration:"none"}}
                             to={`/user/${user._id}`}
                             className="fpb_link-view">
                                 <Button variant="outlined">
-                                View Profile
+                                    View Profile
                                 </Button>
                             
                         </Link>

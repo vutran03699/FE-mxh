@@ -6,8 +6,9 @@ import { read, update, updateUser } from "./apiUser";
 import { isAuthenticated } from "../auth";
 import { Redirect } from 'react-router-dom';
 import DefaultProfile from '../images/avatar.jpg';
-import { Typography , TextField, Input} from '@material-ui/core';
+import { TextField, Input} from '@material-ui/core';
 import {Button} from 'react-bootstrap';
+import editProfile from '../css/editProfile.css'
 
 
 class EditProfle extends Component {
@@ -183,22 +184,14 @@ class EditProfle extends Component {
         const photoUrl = id ? `${process.env.REACT_APP_API_URL}/user/photo/${id}?${new Date().getTime()}` : DefaultProfile ;
 
         return (
-            <div className="container" 
-            style=
-            {{backgroundColor:"white",
-            width:"60%",
-            boxShadow:"20px 20px 50px rgba(0,0,0,0.5)",
-            padding:"20px",
-            borderRadius:"16px"
-            }}>
+            <div className="container ep__wrapper" >
                 
                 <div className="alert alert-danger" style={{ display: error ? "" : "none" }}>
                     {error}
                 </div>
                 <img 
-                    style={{ display: loading ? "none" : "" , height: "200px", width: "auto" }} 
-                    className="img-thumbnail" 
-                    style={{boxShadow:"20px 20px 50px rgba(0,0,0,0.5)",marginLeft:"auto",marginRight:"auto", display:"block",borderRadius:"100%"}}
+                    style={{ display: loading ? "none" : "" , height: "300px", width: "300px" }}
+                    className="img-avatar img-thumbnail" 
                     src={photoUrl} 
                     onError={i => (i.target.src = DefaultProfile)}
                     alt={name} 

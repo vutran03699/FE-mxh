@@ -24,7 +24,7 @@ const MainRouter = () => (
     <div>
         <Menu />
         <Switch>
-            {/* <Route exact path="*" component={NotFound} /> */}
+            <Route exact path="/404" component={NotFound} />
             <PrivateRoute exact path="/" component={Home} />
             <Route exact path="/forgot-password" component={ForgotPassword} />
             <Route exact path="/reset-password/:resetPasswordToken" component={ResetPassword} />
