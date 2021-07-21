@@ -128,16 +128,19 @@ class SinglePost extends Component {
         return(
             <div className="card col-md-12 mb-5 main-content"  >
                 <div className="card-header">  
-                    <img 
-                        className="mb-1 mr-2"
-                        style={{ height: "40px", width: "40px", borderRadius: "50%"  }} 
-                        src={`${process.env.REACT_APP_API_URL}/user/photo/${posterId}`}
-                        onError={i => (i.target.src = DefaultProfile)} 
-                        alt={posterName}
-                        />
-                    <Link to={`/user/${posterId}`} style={{fontSize: "20px",color:"black"}}>
-                            {posterName}
-                    </Link>
+                    <div className="info-user">
+                        <img 
+                            className="mb-1 mr-2"
+                            style={{ height: "40px", width: "40px", borderRadius: "50%"  }} 
+                            src={`${process.env.REACT_APP_API_URL}/user/photo/${posterId}`}
+                            onError={i => (i.target.src = DefaultProfile)} 
+                            alt={posterName}
+                            />
+                        <Link to={`/user/${posterId}`} style={{fontSize: "20px",color:"black"}}>
+                                {posterName}
+                        </Link>
+
+                    </div>
                     
                     {isAuthenticated().user && isAuthenticated().user._id === post.postedBy._id && (
                         <>
@@ -173,6 +176,8 @@ class SinglePost extends Component {
                    
                    
                     
+                    
+                </div>
                     <p style={{ fontSize:"12px",marginLeft:"33px",marginTop:"-13px" }} >
                         <span className="ml-2">
                             <i className="far fa-clock"></i>{" "+timeDifference(new Date(), new Date(post.created))}
@@ -182,19 +187,11 @@ class SinglePost extends Component {
                     
                     
                     <p style={{marginTop:"-10px"}}>{post.body}</p>
-                    
-                </div>
                 <Link to={`/post/${post._id}`}>
                     <img 
                         className="card-img-top" 
                         src={`${process.env.REACT_APP_API_URL}/post/photo/${post._id}`}
                         alt={post.title}
-                        style={{ 
-                            marginTop:"-25px",
-                            maxHeight: "700px",  
-                            backgroundSize: "cover",
-                            backgroundRepeat: 'no-repeat',
-                            backgroundPosition: "50% 50%" }}
                     />
                 </Link>
                 <div className="options-post">

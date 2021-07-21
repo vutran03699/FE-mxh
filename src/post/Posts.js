@@ -49,7 +49,7 @@ class Posts extends Component {
 
     renderPosts = (posts) => {
         return (
-            <div className="row" >
+            <div className="row justify-content-center" >
                 <InfiniteScroll
                     dataLength={posts.length}
                     next={this.fetchData}
@@ -61,7 +61,7 @@ class Posts extends Component {
                         const posterId = post.postedBy ? post.postedBy._id : "";
                         const posterName = post.postedBy ? post.postedBy.name : " Unknown";
                         return (
-                            <div id="main-post"  key={i} className="main-content  card col-md-12 col-12 mb-5" >
+                            <div id="main-post"  key={i} className="main-post  card col-md-12 col-12 mb-5" >
                                 <div className="card-header">
                                     <div className="post-group">
                                         <img

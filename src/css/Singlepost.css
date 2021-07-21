@@ -14,6 +14,14 @@
 .back-to-post {
     color: #000;
 }
+.card-header{
+    
+}
+.card-img-top{
+    max-height: 700px;
+    width: 100%;
+    object-fit: cover;
+}
 .back-to-post:hover {
     text-decoration: none;
     color: #000;
