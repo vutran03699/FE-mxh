@@ -49,7 +49,7 @@ class Posts extends Component {
 
     renderPosts = (posts) => {
         return (
-            <div className="row" >
+            <div className="row justify-content-center" >
                 <InfiniteScroll
                     dataLength={posts.length}
                     next={this.fetchData}
